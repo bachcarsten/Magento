@@ -1,0 +1,82 @@
+<?xml version="1.0"?>
+<config>
+    <!--<tabs>-->
+        <!--<cueBlocks translate="label">-->
+            <!--<label>CueBlocks</label>-->
+            <!--<sort_order>100</sort_order>-->
+        <!--</cueBlocks>-->
+    <!--</tabs>-->
+    <sections>
+        <sales>
+            <!--<label>Custom Order ID</label>-->
+            <!--<tab>sales</tab>-->
+            <!--<frontend_type>text</frontend_type>-->
+            <!--<sort_order>300</sort_order>-->
+            <!--<show_in_default>1</show_in_default>-->
+            <!--<show_in_website>1</show_in_website>-->
+            <!--<show_in_store>1</show_in_store>-->
+            <groups>
+                <auto_invoice translate="label">
+                    <label>Auto Invoice</label>
+                    <frontend_type>text</frontend_type>
+                    <sort_order>900</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <fields>
+                        <enabled translate="label">
+                            <label>Enabled</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <comment>Enable Auto Invoice functionality for All Orders</comment>
+                            <tooltip>All orders will be automatically invoiced</tooltip>
+                            <sort_order>10</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </enabled>
+                        <enabled_email translate="label">
+                            <label>Send Invoice Mail to Customer</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <comment>An Email invoice email will sent to the customer</comment>
+                            <sort_order>20</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <depends>
+                                <enabled>1</enabled>
+                            </depends>
+                        </enabled_email>
+                        <email_message translate="label">
+                            <label>Custom Email Message</label>
+                            <frontend_type>text</frontend_type>
+                            <comment>Add a message to the email footer (empty message will be skipped) </comment>
+                            <sort_order>30</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <depends>
+                                <enabled>1</enabled>
+                                <enabled_email>1</enabled_email>
+                            </depends>
+                        </email_message>
+                        <order_note translate="label">
+                            <label>Add a note to the Order/Invoice History</label>
+                            <frontend_type>text</frontend_type>
+                            <comment>Empty note will be skipped</comment>
+                            <sort_order>50</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <depends>
+                                <enabled>1</enabled>
+                                <enabled_order_note>1</enabled_order_note>
+                            </depends>
+                        </order_note>
+                    </fields>
+                </auto_invoice>
+            </groups>
+        </sales>
+    </sections>
+</config>

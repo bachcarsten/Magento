@@ -1,0 +1,12 @@
+.col-main .category-description { text-align: center;font-size: small;font-family: helvetica;margin-top: 10px; }
+.room-title p { float: right; margin-bottom: 5px;}
+.room-title p:first-child { float: left;}
+.room-title .clear {height: 0px;}
+#at3win #at3winheader h3 {
+    text-align:left !important;
+}
+
+.profile-links {text-align: right;}
+.profile-links .link-remove {margin-left: 12px;}
+
+#payment-tool-tip {z-index: 10;}

@@ -1,0 +1,34 @@
+<script type="text/javascript">
+
+</script>
+
+<?php
+
+$version = Mage::helper('M2ePro/Module')->getVersion();
+$skipWizardLink = $this->getUrl("*/adminhtml_wizard_ebay/skip");
+$startWizardLink = $this->getUrl("*/adminhtml_wizard_ebay");
+
+?>
+
+<div class="wizard-note">
+
+    <a class="wizard-close" href="javascript:void(0);" onclick="WizardHandlerObj.skip('<?php echo $skipWizardLink; ?>');" title="<?php echo Mage::helper('M2ePro')->__('Skip Wizard') ?>">&times;</a>
+
+    <div>
+        <?php
+
+        $notification = Mage::helper('M2ePro')->__(
+            'Click <a href="%startWizard%">Start Configuration</a> Wizard to quickly set up eBay settings or <a href="javascript:;" onclick="confirm(CONFIRM) && setLocation(\'%skipWizard%\')">Skip</a> it if you intend to set up it later. <br/>
+            <strong>Note:</strong> If you close the Wizard now, you will have to set up eBay settings manually.'
+        );
+
+        echo str_replace(
+            array('%ver%','%startWizard%','%skipWizard%'),
+            array($version,$startWizardLink,$skipWizardLink),
+            $notification
+        );
+
+        ?>
+    </div>
+
+</div>

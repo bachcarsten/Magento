@@ -1,0 +1,34 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <Intermix_Cms>
+            <active>true</active>
+            <codePool>local</codePool>
+            <depends>
+                <Mage_Cms />
+            </depends>
+        </Intermix_Cms>
+        <Intermix_General>
+            <active>true</active>
+            <codePool>local</codePool>
+            <depends>
+                <Mage_Core />
+                <Mage_Catalog />
+            </depends>
+        </Intermix_General>
+        <Intermix_Shipping>
+            <active>true</active>
+            <codePool>local</codePool>
+            <depends>
+                <Mage_Shipping />
+            </depends>
+        </Intermix_Shipping>
+        <Intermix_CatalogRule>
+            <active>true</active>
+            <codePool>local</codePool>
+            <depends>
+                <Mage_CatalogRule />
+            </depends>
+        </Intermix_CatalogRule>
+    </modules>
+</config>

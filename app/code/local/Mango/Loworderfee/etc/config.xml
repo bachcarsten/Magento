@@ -1,0 +1,228 @@
+<?xml version="1.0"?>
+<!--
+/**
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to license that is bundled with
+ * this package in the file LICENSE.txt.
+ *
+ * @category   Ciplex
+ * @package    Mango_Loworderfee
+ * @copyright  Copyright (c) 2010 Ciplex Extensions
+ */
+-->
+<config>
+    <modules>
+        <Mango_Loworderfee>
+            <version>1.1.0</version>
+        </Mango_Loworderfee>
+    </modules>
+    <frontend>
+        <layout>
+            <updates>
+                <loworderfee>
+                    <file>loworderfee.xml</file>
+                </loworderfee>
+            </updates>
+        </layout>
+    </frontend>
+
+    <adminhtml>
+        <layout>
+            <updates>
+                <loworderfee>
+                    <file>loworderfee.xml</file>
+                </loworderfee>
+            </updates>
+        </layout>
+    </adminhtml>
+
+    <global>
+        <models>
+            <loworderfee>
+                <class>Mango_Loworderfee_Model</class>
+            </loworderfee>
+            <sales>
+                <rewrite>
+                    <quote>Mango_Loworderfee_Model_Quote</quote>
+                    <quote_address>Mango_Loworderfee_Model_Quote_Address</quote_address>
+                </rewrite>
+            </sales>
+
+            <paypal>
+                <rewrite>
+                    <cart>Mango_Loworderfee_Model_Paypal_Cart</cart>
+                </rewrite>
+            </paypal>
+
+        </models>
+
+        <helpers>
+            <loworderfee>
+                <class>Mango_Loworderfee_Helper</class>
+            </loworderfee>
+        </helpers>
+
+        <resources>
+            <loworderfee_setup>
+                <setup>
+                    <module>Mango_Loworderfee</module>
+                </setup>
+                <connection>
+                    <use>core_setup</use>
+                </connection>
+            </loworderfee_setup>
+            <loworderfee_write>
+                <use>core_write</use>
+            </loworderfee_write>
+            <loworderfee_read>
+                <use>core_read</use>
+            </loworderfee_read>
+        </resources>
+
+        <blocks>
+            <loworderfee>
+                <class>Mango_Loworderfee_Block</class>
+            </loworderfee>
+            <checkout>
+                <rewrite>
+                    <onepage_link>Mango_Loworderfee_Block_Checkout_Onepage_Link</onepage_link>
+                </rewrite>
+            </checkout>
+
+        </blocks>
+
+        <events>
+            <sales_quote_collect_totals_after>
+                <observers>
+                    <loworderfee>
+
+                        <class>loworderfee/observer</class>
+                        <method>sales_quote_collect_totals_after</method>
+                    </loworderfee>
+                </observers>
+            </sales_quote_collect_totals_after>
+
+            <sales_order_payment_place_start>
+                <observers>
+                    <loworderfee>
+                        <type>singleton</type>
+                        <class>loworderfee/observer</class>
+                        <method>sales_order_payment_place_end</method>
+                    </loworderfee>
+                </observers>
+            </sales_order_payment_place_start>
+
+            <sales_order_save_after>
+                <observers>
+                    <loworderfee>
+                        <class>loworderfee/observer</class>
+                        <method>salesEventOrderAfterSave</method>
+                    </loworderfee>
+                </observers>
+            </sales_order_save_after>
+
+            <!--paypal_prepare_line_items>
+                <observers>
+                    <loworderfee>
+
+                        <class>loworderfee/observer</class>
+                        <method>paypal_prepare_line_items</method>
+                    </loworderfee>
+                </observers>
+            </paypal_prepare_line_items-->
+
+        </events>
+
+        <pdf>
+            <totals>
+                <loworderfee translate="title">
+                    <title>Low Order Fee</title>
+                    <source_field>loworderfee</source_field>
+                    <font_size>7</font_size>
+                    <display_zero>0</display_zero>
+                    <sort_order>250</sort_order>
+                    <model>loworderfee/pdf_loworderfee</model>
+                </loworderfee>
+            </totals>
+        </pdf>
+
+        <sales>
+            <quote>
+                <totals>
+                    <loworderfee>
+                        <class>loworderfee/total_quote_loworderfee</class>
+                        <after>subtotal,discount</after>
+                        <admin_renderer>loworderfee/adminhtml_sales_order_create_totals_loworderfee</admin_renderer>
+                        <renderer>loworderfee/checkout_loworderfee</renderer>
+                    </loworderfee>
+                </totals>
+            </quote>
+
+            <order_invoice>
+                <totals>
+                    <loworderfee>
+                        <class>Mango_Loworderfee_Model_Total_Invoice_Loworderfee</class>
+                        <after>subtotal,discount</after>
+                    </loworderfee>
+                </totals>
+            </order_invoice>
+            <order_creditmemo>
+                <totals>
+                    <loworderfee>
+                        <class>Mango_Loworderfee_Model_Total_Creditmemo_Loworderfee</class>
+                        <admin_renderer>loworderfee/adminhtml_sales_order_creditmemo_totals_loworderfee</admin_renderer>
+                        <after>subtotal,discount</after>
+                    </loworderfee>
+                </totals>
+            </order_creditmemo>
+        </sales>
+
+        <!--rewrite>
+            <loworderfee_cart>
+                <from><![CDATA[#^/checkout/cart/#]]>
+                </from>
+                <to>loworderfee/cart</to>
+                <loworderfee_cart>
+                </rewrite-->
+
+        <routers>
+            <checkout>
+               <args>
+                    <modules>
+                        <Mango_Loworderfee before="Mage_Checkout">Mango_Loworderfee</Mango_Loworderfee>
+                    </modules>
+                </args>
+
+<!--
+                <rewrite>
+                    <cart>
+                        <to>loworderfee/cart</to>
+                    </cart>
+                </rewrite>
+-->
+            </checkout>
+        </routers>
+
+    </global>
+    <frontend>
+        <routers>
+            <loworderfee>
+                <use>standard</use>
+                <args>
+                    <module>Mango_Loworderfee</module>
+                    <frontName>loworderfee</frontName>
+                </args>
+            </loworderfee>
+        </routers>
+    </frontend>
+    <default>
+        <sales>
+            <minimum_order>
+                <low_order_fee_title>Minimum Order Fee</low_order_fee_title>
+                <low_order_fee_method>fixed</low_order_fee_method>
+            </minimum_order>
+        </sales>
+    </default>
+</config>

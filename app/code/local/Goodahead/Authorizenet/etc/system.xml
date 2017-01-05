@@ -1,0 +1,140 @@
+<?xml version="1.0"?>
+<config>
+    <sections>
+        <payment>
+            <groups>
+                <goodahead_authorizenet>
+                    <label>Authorize.net CIM</label>
+                    <sort_order>10</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <fields>
+                        <active translate="label">
+                            <label>Enabled</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <!--
+                            <config_path>payment/goodahead_authorizenet/active</config_path>
+                            -->
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <sort_order>10</sort_order>
+                        </active>
+                        <payment_action translate="label">
+                            <label>Payment Action</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>goodahead_authorizenet/source_paymentAction</source_model>
+                            <!--
+                            <config_path>payment/goodahead_authorizenet/payment_action</config_path>
+                            -->
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <sort_order>20</sort_order>
+                        </payment_action>
+                        <title translate="label">
+                            <label>Title</label>
+                            <!--
+                            <config_path>payment/goodahead_authorizenet/title</config_path>
+                            -->
+                            <fronted_type>text</fronted_type>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <sort_order>30</sort_order>
+                        </title>
+                        <login translate="label">
+                            <label>API Login ID</label>
+                            <frontend_type>text</frontend_type>
+                            <!--
+                            <config_path>payment/goodahead_authorizenet/login</config_path>
+                            -->
+                            <!--
+                            <frontend_type>obscure</frontend_type>
+                            <backend_model>adminhtml/system_config_backend_encrypted</backend_model>
+                            -->
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <sort_order>40</sort_order>
+                        </login>
+                        <transaction_key>
+                            <label>Transaction Key</label>
+                            <frontend_type>text</frontend_type>
+                            <!--
+                            <config_path>payment/goodahead_authorizenet/transaction_key</config_path>
+                            -->
+                            <!--
+                            <frontend_type>obscure</frontend_type>
+                            <backend_model>adminhtml/system_config_backend_encrypted</backend_model>
+                            -->
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <sort_order>50</sort_order>
+                        </transaction_key>
+                        <prefix_id>
+                            <label>Prefix ID</label>
+                            <frontend_type>text</frontend_type>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <sort_order>55</sort_order>
+                            <comment>Maximum 10 characters</comment>
+                        </prefix_id>
+                        <order_status>
+                            <label>New Order Status</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_order_status_processing</source_model>
+                            <!--
+                            <config_path>payment/goodahead_authorizenet/order_status</config_path>
+                            -->
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <sort_order>60</sort_order>
+                        </order_status>
+                        <test_mode>
+                            <label>Test Mode</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <!--
+                            <config_path>payment/goodahead_authorizenet/test_mode</config_path>
+                            -->
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <sort_order>70</sort_order>
+                        </test_mode>
+                        <cctypes translate="label">
+                            <label>Credit Card Types</label>
+                            <frontend_type>multiselect</frontend_type>
+                            <source_model>goodahead_authorizenet/source_cctype</source_model>
+                            <!--
+                            <config_path>payment/goodahead_authorizenet/cctypes</config_path>
+                            -->
+                            <sort_order>75</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </cctypes>
+                        <useccv>
+                            <label>Credit Card Verification</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <!--
+                            <config_path>payment/goodahead_authorizenet/useccv</config_path>
+                            -->
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <sort_order>80</sort_order>
+                        </useccv>
+                        <sort_order>
+                            <label>Sort Order</label>
+                            <frontend_type>text</frontend_type>
+                            <!--
+                            <config_path>payment/goodahead_authorizenet/sort_order</config_path>
+                            -->
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <sort_order>90</sort_order>
+                        </sort_order>
+                    </fields>
+                </goodahead_authorizenet>
+            </groups>
+        </payment>
+    </sections>
+</config>

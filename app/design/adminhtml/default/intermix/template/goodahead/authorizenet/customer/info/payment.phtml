@@ -1,0 +1,49 @@
+<?php
+/**
+ * @var Goodahead_Authorizenet_Block_Adminhtml_Customer_Info_Payment $this
+ */
+?>
+<?php $profile = $this->getProfile(); ?>
+<li id="goodahead-authorizenet-profile-<?php echo $this->getProfileId(); ?>">
+    <!--
+    <a href="#" class="btn-remove-address">
+        <img src="<?php echo $this->getSkinUrl('images/cancel_icon.gif') ?>" alt="<?php echo $this->__('Remove Payment Profile'); ?>" />
+    </a>
+    -->
+    <address>
+        <strong>
+            <span class="goodahead_authorizenet_card_number"><?php echo $profile['credit_card']['cardNumber']; ?></span>
+        </strong><br/>
+        <?php if (!empty($profile['billing']['firstName'])): ?>
+            <span class="goodahead_authorizenet_firstname"><?php echo $profile['billing']['firstName']; ?></span>&nbsp;
+        <?php endif; ?>
+        <?php if (!empty($profile['billing']['lastName'])): ?>
+            <span class="goodahead_authorizenet_lastname"><?php echo $profile['billing']['lastName']; ?></span>
+        <?php endif; ?><br/>
+        <?php if (!empty($profile['billing']['company'])): ?>
+            <span class="goodahead_authorizenet_company"><?php echo $profile['billing']['company']; ?></span><br/>
+        <?php endif; ?>
+        <?php if (!empty($profile['billing']['address'])): ?>
+            <span class="goodahead_authorizenet_address"><?php echo $profile['billing']['address']; ?></span><br/>
+        <?php endif; ?>
+        <?php if (!empty($profile['billing']['city'])): ?>
+            <span class="goodahead_authorizenet_city"><?php echo $profile['billing']['city']; ?></span>,
+        <?php endif; ?>
+        <?php if (!empty($profile['billing']['state'])): ?>
+            <span class="goodahead_authorizenet_state"><?php echo $profile['billing']['state']; ?></span>,
+        <?php endif; ?>
+        <?php if (!empty($profile['billing']['zip'])): ?>
+            <span class="goodahead_authorizenet_zip"><?php echo $profile['billing']['zip']; ?></span>
+        <?php endif; ?><br/>
+        <?php if (!empty($profile['billing']['country'])): ?>
+            <span class="goodahead_authorizenet_country"><?php echo $profile['billing']['country']; ?></span><br/>
+        <?php endif; ?>
+        <?php if (!empty($profile['billing']['phoneNumber'])): ?>
+            T:&nbsp;<span class="goodahead_authorizenet_phone"><?php echo $profile['billing']['phoneNumber']; ?></span>
+        <?php endif; ?>
+        <?php if (!empty($profile['billing']['faxNumber'])): ?>
+            <br/>F:&nbsp;<span class="goodahead_authorizenet_fax"><?php echo $profile['billing']['faxNumber']; ?></span>
+        <?php endif; ?>
+        <span class="goodahead_authorizenet_profile_id" style="display:none;"><?php echo $this->getProfileId(); ?></span>
+    </address>
+</li>

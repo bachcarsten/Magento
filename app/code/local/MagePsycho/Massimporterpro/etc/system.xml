@@ -1,0 +1,266 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @category   MagePsycho
+ * @package    MagePsycho_Massimporterpro
+ * @author     magepsycho@gmail.com
+ * @website    http://www.magepsycho.com
+ * @license    http://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
+ */
+ -->
+<config>
+    <tabs>
+        <magepychoall translate="label" module="magepsycho_massimporterpro">
+            <label>MagePsycho Extensions</label>
+            <sort_order>400</sort_order>
+        </magepychoall>
+    </tabs>
+    <sections>
+        <magepychoinfo translate="label" module="magepsycho_massimporterpro">
+			<label>Info</label>
+			<tab>magepychoall</tab>
+			<frontend_type>text</frontend_type>
+			<sort_order>99999999999</sort_order>
+			<show_in_default>1</show_in_default>
+			<show_in_website>1</show_in_website>
+			<show_in_store>1</show_in_store>
+			<groups>
+                <info>
+                    <frontend_model>magepsycho_massimporterpro/system_config_info</frontend_model>
+                    <sort_order>10</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                </info>
+			</groups>
+		</magepychoinfo>
+
+        <magepsycho_massimporterpro module="magepsycho_massimporterpro">
+            <label>Mass Importer Pro</label>
+            <tab>magepychoall</tab>
+            <frontend_type>text</frontend_type>
+            <sort_order>1000</sort_order>
+            <show_in_default>1</show_in_default>
+            <show_in_website>1</show_in_website>
+            <show_in_store>1</show_in_store>
+            <groups>
+                <option translate="label">
+                    <label>General Settings</label>
+                    <frontend_type>text</frontend_type>
+                    <sort_order>10</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <fields>
+						<version translate="label">
+                            <label>Version</label>
+                            <frontend_type>label</frontend_type>
+							<frontend_model>magepsycho_massimporterpro/system_config_version</frontend_model>
+                            <sort_order>10</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>0</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </version>
+                        <active translate="label">
+                            <label>Enabled</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>20</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </active>
+						<domain_type translate="label">
+                            <label>Domain Type</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>magepsycho_massimporterpro/system_config_source_domaintypes</source_model>
+                            <sort_order>30</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </domain_type>
+						<dev_license translate="label">
+                            <label>License Key (Development)*</label>
+                            <frontend_type>text</frontend_type>
+							<validate>required-entry</validate>
+                            <sort_order>40</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+							<tooltip><![CDATA[License Key is mandatory in order to run the module. <br /> <strong>Note</strong>: You need to use License Key as per Domain Type]]></tooltip>
+							<depends><domain_type>2</domain_type></depends>
+                        </dev_license>
+						<prod_license translate="label">
+                            <label>License Key (Production)*</label>
+                            <frontend_type>text</frontend_type>
+							<validate>required-entry</validate>
+                            <sort_order>50</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+							<tooltip><![CDATA[License Key is mandatory in order to run the module. <br /> <strong>Note</strong>: You need to use License Key as per Domain Type]]></tooltip>
+							<depends><domain_type>1</domain_type></depends>
+                        </prod_license>
+						<enable_log translate="label">
+                            <label>Enable Import Log</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>60</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>0</show_in_store>
+                            <tooltip><![CDATA[Used for debugging purpose]]></tooltip>
+                        </enable_log>
+                    </fields>
+                </option>
+				<price_settings translate="label">
+                    <label>Price Settings</label>
+                    <frontend_type>text</frontend_type>
+                    <sort_order>20</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>0</show_in_website>
+                    <show_in_store>0</show_in_store>
+                    <fields>
+						<genenralheading translate="label">
+                            <label>General</label>
+                            <frontend_model>magepsycho_massimporterpro/system_config_heading</frontend_model>
+                            <sort_order>10</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+							<show_in_store>0</show_in_store>
+                        </genenralheading>
+						<price_rounding translate="label">
+                            <label>Price Rounding</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>magepsycho_massimporterpro/system_config_source_rounding</source_model>
+                            <sort_order>20</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>0</show_in_store>
+                            <tooltip><![CDATA[Round normally: 9.43 -> 9.00, 9.63 -> 10.00 <br />Round to Nearest: 9.43 -> 9.00 + (value=0.5) = 9.50, 9.43 -> 9.00 + (value=0.99) = 9.99]]></tooltip>
+                        </price_rounding>
+                        <rounding_nearest translate="label">
+                            <label>Rounding Value</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>30</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>0</show_in_store>
+                            <depends><price_rounding>2</price_rounding></depends>
+                            <tooltip><![CDATA[If value is 0.99: 9.43 -> 9.99, 0.5: 9.43 -> 9.5, 0: 9.43 -> 9.00]]></tooltip>
+                        </rounding_nearest>
+                        <tier_price_import_type translate="label">
+                            <label>Tier Price Import Type</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>magepsycho_massimporterpro/system_config_source_importtypes</source_model>
+                            <sort_order>40</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>0</show_in_store>
+							<tooltip><![CDATA[<strong>Merge</strong>: Merge with the existing data, <br /><strong>Replace (Group)</strong>: Delete existing data by sku & a group and insert new, <br /><strong>Replace (All)</strong>: Delete existing data by sku & all groups and insert new]]></tooltip>
+                        </tier_price_import_type>
+						<group_price_import_type translate="label">
+                            <label>Group Price Import Type</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>magepsycho_massimporterpro/system_config_source_importtypes</source_model>
+                            <sort_order>50</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>0</show_in_store>
+							<tooltip><![CDATA[The 'Group Price' feature is only available in Magento 1.7 or higher.]]></tooltip>
+                        </group_price_import_type>
+						<reindex_after_import translate="label">
+                            <label>Re-Index Product Prices After Import</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>60</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </reindex_after_import>
+						<cronheading translate="label">
+                            <label>Cron</label>
+                            <frontend_model>magepsycho_massimporterpro/system_config_heading</frontend_model>
+                            <sort_order>70</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                        </cronheading>
+						<enable_cron translate="label">
+                            <label>Enable Cron</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>80</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </enable_cron>
+						<import_csv_dir translate="label">
+                            <label>File Import Directory</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>90</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>0</show_in_store>
+							<tooltip><![CDATA[This relative path will be used by cron for searching CSV file(s) for price importing. You can have one or multiple *.csv files in this folder.<br />If left empty following path will be used: var/magepsycho/massimporterpro/price_importer/cron]]></tooltip>
+                        </import_csv_dir>
+						<process_csv_type translate="label">
+                            <label>Process Imported Files</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>magepsycho_massimporterpro/system_config_source_filepostprocess</source_model>
+                            <sort_order>100</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>0</show_in_store>
+							<tooltip><![CDATA[Selected operation will be done after the CSV file(s) are imported via cron.<br />If the operation is 'Move To Archive Folder', processed files will be moved to folder: var/magepsycho/massimporterpro/price_importer/archive]]></tooltip>
+                        </process_csv_type>
+                        <time translate="label">
+                            <label>Start Time</label>
+                            <frontend_type>time</frontend_type>
+                            <sort_order>110</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </time>
+                        <frequency translate="label">
+                            <label>Frequency</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_cron_frequency</source_model>
+                            <backend_model>magepsycho_massimporterpro/system_config_backend_priceimporter_cron</backend_model>
+                            <sort_order>120</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </frequency>
+                        <error_email translate="label">
+                            <label>Error Email Recipient</label>
+                            <frontend_type>text</frontend_type>
+                            <validate>validate-email</validate>
+                            <sort_order>130</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </error_email>
+                        <error_email_identity translate="label">
+                            <label>Error Email Sender</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_email_identity</source_model>
+                            <sort_order>140</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </error_email_identity>
+                        <error_email_template translate="label">
+                            <label>Error Email Template</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_email_template</source_model>
+                            <sort_order>150</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </error_email_template>
+                    </fields>
+                </price_settings>
+            </groups>
+        </magepsycho_massimporterpro>
+    </sections>
+</config>

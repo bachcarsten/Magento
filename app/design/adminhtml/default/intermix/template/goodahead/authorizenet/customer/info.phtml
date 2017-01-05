@@ -1,0 +1,298 @@
+<?php
+/**
+ * @var Goodahead_Authorizenet_Block_Adminhtml_Customer_Info $this
+ */
+?>
+<div id="goodahead-authorizent-message"></div>
+<table cellspacing="0" class="form-edit">
+    <tr>
+        <td class="address-list">
+            <div class="entry-edit-head">
+                <h4 class="icon-head head-customer-address-list">
+                    <?php if ($this->getAuthorizenetCustomer()->getProfileId()): ?>
+                        <?php echo $this->__('Payment Profiles (Profile ID: %s)', $this->getAuthorizenetCustomer()->getProfileId()); ?>
+                    <?php else: ?>
+                        <?php echo $this->__('Payment Profiles'); ?>
+                    <?php endif; ?>
+                </h4>
+            </div>
+            <div class="sub-btn-set">
+                <button id="goodahead-authorizenet-add" class="scalable add" type="button" name="add_address_button">
+                    <span><?php echo $this->__('Add New Payment Profile'); ?></span>
+                </button>
+            </div>
+            <ul id="goodahead-authorizenet-payment-profiles">
+                <?php echo $this->renderPaymentProfiles(); ?>
+            </ul>
+        </td>
+        <td>
+            <div id="goodahead-authorizenet-form" style="display:none;">
+                <?php echo $this->renderForm(); ?>
+            </div>
+        </td>
+    </tr>
+</table>
+<script type="text/javascript">
+//<![CDATA[
+var GoodaheadAuthorizeNetModel = Class.create();
+GoodaheadAuthorizeNetModel.prototype = {
+    initialize: function() {
+        this.profiles = $$('#goodahead-authorizenet-payment-profiles li');
+        this.form     = $('goodahead-authorizenet-form');
+        this.add      = $('goodahead-authorizenet-add');
+        this.save     = $('goodahead-authorizenet-save');
+        this.remove   = $('goodahead-authorizenet-remove');
+
+        this.removeUrl  = '<?php echo $this->getDeleteUrl(); ?>';
+        this.saveUrl    = '<?php echo $this->getSaveUrl(); ?>';
+        this.paymentUrl = '<?php echo $this->getPaymentUrl(); ?>';
+
+        this.hideForm();
+        this.initPaymentProfiles();
+        this.initAction();
+        this.clearForm();
+    },
+
+    initAction: function() {
+        this.add.observe('click', this.onAdd.bind(this));
+        this.save.observe('click', this.onSave.bind(this));
+        this.remove.observe('click', this.onRemove.bind(this));
+    },
+
+    onAdd: function() {
+        this.clearForm();
+        this.setFormTitle('Add New Profile');
+        this.renameButton(this.remove, 'Cancel');
+        this.deselectProfiles();
+        this.showFormElements();
+        this.showForm();
+    },
+
+    onSave: function() {
+        var self = this;
+        new Ajax.Request(this.saveUrl, {
+            method    : 'POST',
+            parameters: this.getFormValues(),
+            onSuccess : function(transport) {
+                var response = transport.responseText.evalJSON();
+                if (response.success) {
+                    self.addSuccessMessage(response.message);
+                    new Ajax.Request(self.paymentUrl, {
+                        method    : 'GET',
+                        parameters: {
+                            profile_id: response.profile_id
+                        },
+                        onSuccess : function(transport) {
+                            var id = 'goodahead-authorizenet-profile-' + response.profile_id;
+                            switch (response.type) {
+                                case 'updated':
+                                    $(id).replace(transport.responseText);
+                                    break;
+                                case 'created':
+                                    $('goodahead-authorizenet-payment-profiles').insert({top: transport.responseText});
+                                    break;
+                            }
+                            self.initPaymentProfile($(id));
+                            self.resetPaymentProfiles();
+                            self.hideForm();
+                            self.clearForm();
+                        }
+                    });
+                } else {
+                    self.addErrorMessage(response.message);
+                }
+            }
+        });
+    },
+
+    onRemove: function() {
+        var self = this;
+        var profileId = this.getFormElement('profile_id').value;
+        if (profileId) {
+            if (confirm('Do you really want to delete profile?')) {
+                new Ajax.Request(this.removeUrl, {
+                    method    : 'POST',
+                    parameters: {
+                        profile_id: profileId
+                    },
+                    onSuccess : function(transport) {
+                        var response = transport.responseText.evalJSON();
+                        if (response.success) {
+                            self.addSuccessMessage(response.message);
+                            self.hideForm();
+                            $('goodahead-authorizenet-profile-' + profileId).remove();
+                        } else {
+                            self.addErrorMessage(response.message);
+                        }
+                    }
+                });
+            }
+            return;
+        }
+        this.hideForm();
+    },
+
+    renameButton: function(button, name) {
+        button.down().innerHTML = name;
+    },
+
+    deselectProfiles: function() {
+        this.profiles.each(function(element) {
+            element.removeClassName('on').removeClassName('over');
+        });
+    },
+
+    clearForm: function() {
+        var self = this;
+        ['input', 'select'].each(function(type) {
+            self.form.select(type).each(function(element) {
+                element.value = '';
+            });
+        });
+    },
+
+    showForm: function() {
+        this.form.setStyle({display: 'block'});
+    },
+
+    hideForm: function() {
+        this.form.setStyle({display: 'none'});
+    },
+
+    getFormTitleElement: function() {
+        return this.form.select('.entry-edit-head h4')[0];
+    },
+
+    setFormTitle: function(title) {
+        this.getFormTitleElement().innerHTML = title;
+    },
+
+    getFormElement: function(name) {
+        return $('goodahead_authorizenet_' + name);
+    },
+
+    hideFormElement: function(name) {
+        var element = name;
+        if (typeof name == 'string') {
+            element = this.getFormElement(name);
+        }
+        if (element.type != 'hidden') {
+            element.up().up().addClassName('no-display');
+        }
+    },
+
+    showFormElement: function(name) {
+        var element = name;
+        if (typeof name == 'string') {
+            element = this.getFormElement(name);
+        }
+        if (element.type != 'hidden') {
+            element.up().up().removeClassName('no-display');
+        }
+    },
+
+    showFormElements: function() {
+        var self = this;
+        ['input', 'select'].each(function(type) {
+            self.form.select(type).each(function(element) {
+                self.showFormElement(element);
+            });
+        });
+    },
+
+    getFormValues: function() {
+        var self = this;
+        var values = {};
+        ['input', 'select'].each(function(type) {
+            self.form.select(type).each(function(element) {
+                values[element.name] = element.value;
+            });
+        });
+        return values;
+    },
+
+    getProfileValue: function(profile, name) {
+        var element = profile.select('span.goodahead_authorizenet_' + name)[0];
+        return element ? element.innerHTML : false;
+    },
+
+    initPaymentProfiles: function() {
+        var self = this;
+        this.profiles.each(function(element) {
+            self.initPaymentProfile(element);
+        });
+    },
+
+    resetPaymentProfiles: function() {
+        this.profiles = $$('#goodahead-authorizenet-payment-profiles li');
+    },
+
+    initPaymentProfile: function(element) {
+        element.observe('mouseover', this.onMouseOver.bind(this, element));
+        element.observe('mouseout', this.onMouseOut.bind(this, element));
+        element.observe('click', this.onMouseClick.bind(this, element));
+    },
+
+    onMouseOver: function(element) {
+        if (element.hasClassName('on')) {
+            element.addClassName('over');
+        }
+    },
+
+    onMouseOut: function(element) {
+        if (element.hasClassName('over')) {
+            element.removeClassName('over');
+        }
+    },
+
+    onMouseClick: function(element) {
+        this.profiles.each(function(el) {
+            el.removeClassName('on').removeClassName('over');
+        });
+        element.addClassName('on');
+        element.addClassName('over');
+
+        this.fillForm(element);
+        this.showForm();
+    },
+
+    fillForm: function(element) {
+        this.clearForm();
+        this.renameButton(this.remove, 'Delete');
+        
+        this.hideFormElement('cc_type');
+        this.hideFormElement('card_number');
+
+        this.setFormTitle('Edit ' + this.getProfileValue(element, 'card_number'));
+        this.getFormElement('profile_id').value = this.getProfileValue(element, 'profile_id');
+
+        var self = this;
+        ['firstname', 'lastname', 'company', 'city', 'state',
+            'zip', 'country', 'address', 'phone', 'fax'].each(function(name) {
+            var value = self.getProfileValue(element, name);
+            if (value) {
+                self.getFormElement(name).value = value;
+            }
+        });
+    },
+
+    addSuccessMessage: function(body) {
+        this.addMessage(body, 'success');
+    },
+
+    addErrorMessage: function(body) {
+        this.addMessage(body, 'error');
+    },
+
+    addMessage: function(body, type) {
+        var message = $('goodahead-authorizent-message');
+        message.setStyle({display: 'block'});
+        message.update('<ul class="messages"><li class="' + type + '-msg"><ul><li>' + body + '</li></ul></li></ul>');
+        setTimeout(function() {
+            message.fade({duration: 3.0, from: 1, to: 0});
+        }, 10000);
+    }
+};
+new GoodaheadAuthorizeNetModel();
+//]]>
+</script>

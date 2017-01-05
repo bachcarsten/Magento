@@ -1,0 +1,68 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <Goodahead_PdfReport>
+            <version>1.4.1.0</version>
+        </Goodahead_PdfReport>
+    </modules>        
+    <global> 
+		<models>
+			<goodahead_pdfreport>
+		        <class>Goodahead_PdfReport_Model</class>
+	        </goodahead_pdfreport>
+    	</models>
+    	
+    	<resources>
+            <goodahead_pdfreport_setup>
+                <setup>
+                    <module>Goodahead_PdfReport</module>
+                    <class>Mage_Eav_Model_Entity_Setup</class>
+                </setup>
+                <connection>
+                    <use>core_setup</use>
+                </connection>
+            </goodahead_pdfreport_setup>
+            <goodahead_pdfreport_write>
+                <connection>
+                    <use>core_write</use>
+                </connection>
+            </goodahead_pdfreport_write>
+            <goodahead_pdfreport_read>
+                <connection>
+                    <use>core_read</use>
+                </connection>
+            </goodahead_pdfreport_read>
+        </resources>
+        
+    	<blocks>
+            <goodahead_pdfreport>
+                <class>Goodahead_PdfReport_Block</class>
+            </goodahead_pdfreport>
+        </blocks>
+        
+    	<helpers>
+            <goodahead_pdfreport>
+                <class>Goodahead_PdfReport_Helper</class>
+            </goodahead_pdfreport>
+        </helpers>
+    </global>
+    
+    <admin>
+        <routers>
+            <goodahead_pdfreport_admin>
+                <use>admin</use>
+                <args>
+                    <module>Goodahead_PdfReport</module>
+                    <frontName>pdfreportadmin</frontName>
+                </args>
+            </goodahead_pdfreport_admin>
+            <adminhtml>
+                <args>
+                    <modules>
+                          <goodahead_pdfreport_admin before="Mage_Adminhtml">Goodahead_PdfReport_Adminhtml</goodahead_pdfreport_admin>
+                    </modules>
+                </args>
+            </adminhtml>
+        </routers>
+    </admin>
+</config>

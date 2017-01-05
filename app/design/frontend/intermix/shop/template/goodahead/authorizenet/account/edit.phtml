@@ -1,0 +1,153 @@
+<?php
+/**
+ * @var Goodahead_Authorizenet_Block_Account_Create $this
+ */
+?>
+<?php $paymentProfile = $this->getPaymentProfile(); ?>
+<div class="padder">
+<div class="page-head">
+    <h3><?php echo $this->__('Edit ' . $paymentProfile['credit_card']['cardNumber']); ?></h3>
+</div>
+<?php echo $this->getMessagesBlock()->getGroupedHtml() ?>
+<?php echo $this->getChildHtml('form_before')?>
+<form action="<?php echo $this->getUpdateAction(); ?>" method="post" id="form-validate">
+    <?php echo $this->getBlockHtml('formkey')?>
+    <input type="hidden" name="profile[customer_type]" value="individual"/>
+    <input type="hidden" name="profile[payment_profile_id]" value="<?php echo $this->getPaymentProfileId() ?>"/>
+    <fieldset class="group-select">
+        <div class="head-alt2"> 
+            <h4 class="title"><?php echo $this->__('Card Information'); ?></h4>
+        </div>
+        <ul>
+            <li id="goodahead_authorizenet_cc_type_exp_div">
+                <label for="goodahead_authorizenet_expiration"><?php echo $this->__('Expiration Date'); ?> <span class="required">*</span></label>
+                <br/>
+                <div class="input-box">
+                    <div class="v-fix">
+                        <select class="month validate-cc-exp required-entry" name="profile[cc_exp_month]" id="goodahead_authorizenet_expiration" autocomplete="off" style="width:110px;">
+                            <option selected="selected" value=""><?php echo $this->__('Month'); ?></option>
+                            <option value="1"><?php echo $this->__('01 - January'); ?></option>
+                            <option value="2"><?php echo $this->__('02 - February'); ?></option>
+                            <option value="3"><?php echo $this->__('03 - March'); ?></option>
+                            <option value="4"><?php echo $this->__('04 - April'); ?></option>
+                            <option value="5"><?php echo $this->__('05 - May'); ?></option>
+                            <option value="6"><?php echo $this->__('06 - June'); ?></option>
+                            <option value="7"><?php echo $this->__('07 - July'); ?></option>
+                            <option value="8"><?php echo $this->__('08 - August'); ?></option>
+                            <option value="9"><?php echo $this->__('09 - September'); ?></option>
+                            <option value="10"><?php echo $this->__('10 - October'); ?></option>
+                            <option value="11"><?php echo $this->__('11 - November'); ?></option>
+                            <option value="12"><?php echo $this->__('12 - December'); ?></option>
+                        </select>
+                    </div>
+                    <div class="v-fix">
+                        <select class="year required-entry" name="profile[cc_exp_year]" id="goodahead_authorizenet_expiration_yr" autocomplete="off" style="width:110px;">
+                            <option selected="selected" value=""><?php echo $this->__('Year'); ?></option>
+                            <option value="2010"><?php echo $this->__('2010'); ?></option>
+                            <option value="2011"><?php echo $this->__('2011'); ?></option>
+                            <option value="2012"><?php echo $this->__('2012'); ?></option>
+                            <option value="2013"><?php echo $this->__('2013'); ?></option>
+                            <option value="2014"><?php echo $this->__('2014'); ?></option>
+                            <option value="2015"><?php echo $this->__('2015'); ?></option>
+                            <option value="2016"><?php echo $this->__('2016'); ?></option>
+                            <option value="2017"><?php echo $this->__('2017'); ?></option>
+                            <option value="2018"><?php echo $this->__('2018'); ?></option>
+                            <option value="2019"><?php echo $this->__('2019'); ?></option>
+                            <option value="2020"><?php echo $this->__('2020'); ?></option>
+                        </select>
+                    </div>
+                </div>
+            </li>
+            <?php if ($this->hasVerification()): ?>
+            <li id="goodahead_authorizenet_cc_type_cvv_div">
+                <label for="goodahead_authorizenet_cc_cid"><?php echo $this->__('Card Verification Number'); ?> <span class="required">*</span></label>
+                <br/>
+                <div class="input-box">
+                    <div class="v-fix">
+                        <input type="text" value="" name="profile[cc_cid]" id="goodahead_authorizenet_cc_cid" class="input-text cvv required-entry validate-cc-cvn" title="Card Verification Number" autocomplete="off" style="width:110px;">
+                    </div>
+                </div>
+            </li>
+            <?php endif; ?>
+        </ul>
+    </fieldset>
+    <fieldset class="group-select">
+        <div class="head-alt2">
+            <h4 class="title"><?php echo $this->__('Billing Address'); ?></h4>
+        </div>
+        <ul>
+            <li>
+                <div class="customer-name">
+                    <div class="input-box name-firstname">
+                        <label for="firstname"><?php echo  $this->__('First Name'); ?></label>
+                        <br/>
+                        <input type="text" id="firstname" class="input-text" title="<?php echo  $this->__('Firstname'); ?>" name="profile[firstname]" value="<?php if (!empty($paymentProfile['billing']['firstName'])) echo $paymentProfile['billing']['firstName']; ?>" />
+                    </div>
+                    <div class="input-box name-lastname">
+                        <label for="lastname"><?php echo  $this->__('Last Name'); ?></label>
+                        <br/>
+                        <input type="text" id="lastname" class="input-text" title="<?php echo  $this->__('Lastname'); ?>" name="profile[lastname]" value="<?php if (!empty($paymentProfile['billing']['lastName'])) echo $paymentProfile['billing']['lastName']; ?>" />
+                    </div>
+                </div>
+            </li>
+            <li>
+                <label for="company"><?php echo  $this->__('Company'); ?></label>
+                <br/>
+                <input type="text" id="company" class="input-text" title="<?php echo  $this->__('Company'); ?>" name="profile[company]" value="<?php if (!empty($paymentProfile['billing']['company'])) echo $paymentProfile['billing']['company']; ?>" />
+            </li>
+            <li>
+                <label for="address"><?php echo  $this->__('Address'); ?></label>
+                <br/>
+                <input type="text" id="address" class="input-text" title="<?php echo  $this->__('Address'); ?>" name="profile[address]" value="<?php if (!empty($paymentProfile['billing']['address'])) echo $paymentProfile['billing']['address']; ?>" />
+            </li>
+            <li>
+                <div class="input-box">
+                    <label for="city"><?php echo  $this->__('City'); ?></label>
+                    <br/>
+                    <input type="text" id="city" class="input-text" title="<?php echo  $this->__('City'); ?>" name="profile[city]" value="<?php if (!empty($paymentProfile['billing']['city'])) echo $paymentProfile['billing']['city']; ?>" />
+                </div>
+                <div class="input-box">
+                    <label for="state"><?php echo  $this->__('State'); ?></label>
+                    <br/>
+                    <input type="text" id="state" class="input-text" title="<?php echo  $this->__('State'); ?>" name="profile[state]" value="<?php if (!empty($paymentProfile['billing']['state'])) echo $paymentProfile['billing']['state']; ?>" />
+                </div>
+            </li>
+            <li>
+                <div class="input-box">
+                    <label for="zip"><?php echo  $this->__('Zip'); ?></label>
+                    <br/>
+                    <input type="text" id="zip" class="input-text" title="<?php echo  $this->__('Zip'); ?>" name="profile[zip]" value="<?php if (!empty($paymentProfile['billing']['zip'])) echo $paymentProfile['billing']['zip']; ?>" />
+                </div>
+                <div class="input-box">
+                    <label for="country"><?php echo  $this->__('Country'); ?></label>
+                    <br/>
+                    <input type="text" id="country" class="input-text" title="<?php echo  $this->__('Country'); ?>" name="profile[country]" value="<?php if (!empty($paymentProfile['billing']['country'])) echo $paymentProfile['billing']['country']; ?>" />
+                </div>
+            </li>
+            <li>
+                <div class="input-box">
+                    <label for="phone"><?php echo  $this->__('Phone Number'); ?></label>
+                    <br/>
+                    <input type="text" id="phone" class="input-text" title="<?php echo  $this->__('Phone Number'); ?>" name="profile[phone]" value="<?php if (!empty($paymentProfile['billing']['phoneNumber'])) echo $paymentProfile['billing']['phoneNumber']; ?>" />
+                    
+                </div>
+                <div class="input-box">
+                    <label for="fax"><?php echo  $this->__('Fax Number'); ?></label>
+                    <br/>
+                    <input type="text" id="fax" class="input-text" title="<?php echo  $this->__('Fax Number'); ?>" name="profile[fax]" value="<?php if (!empty($paymentProfile['billing']['faxNumber'])) echo $paymentProfile['billing']['faxNumber']; ?>" />
+                </div>
+            </li>
+        </ul>
+    </fieldset>
+    <div class="button-set">
+        <p class="required">* <?php echo $this->__('Required Fields'); ?></p>
+        <a class="f-left" href="<?php echo $this->escapeUrl($this->getUrl('*/*')) ?>"><small>&laquo; </small><?php echo $this->__('Back') ?></a>
+        <input type="image" src="<?php echo $this->getSkinUrl('images/btn_save.gif'); ?>" title="<?php echo $this->__('Save') ?>"/>
+    </div>
+</form>
+</div>
+<script type="text/javascript">
+//<![CDATA[
+    var dataForm = new VarienForm('form-validate', true);
+//]]>
+</script>

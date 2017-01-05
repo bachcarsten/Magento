@@ -1,0 +1,38 @@
+<script type="text/javascript">
+
+</script>
+
+<?php
+
+$version = Mage::helper('M2ePro/Module')->getVersion();
+$completeWizardLink = $this->getUrl("*/adminhtml_wizard_ebayPartsCompatibility/complete");
+$marketplacesLink = $this->getUrl("*/adminhtml_marketplace");
+$docsLink = Mage::helper('M2ePro/Module')->getConfig()->getGroupValue('/documentation/', 'baseurl');
+$docsLink .= 'eBay+Motors+Compatibility';
+
+?>
+
+<div class="wizard-note">
+
+    <a class="wizard-close" href="javascript:void(0);" onclick="WizardHandlerObj.complete('<?php echo $completeWizardLink; ?>');" title="<?php echo Mage::helper('M2ePro')->__('Complete Wizard') ?>">&times;</a>
+
+    <div>
+        <?php
+
+        $notification = Mage::helper('M2ePro')->__(
+'Part Compatibility feature for <b>eBay Motors</b> was added in current version.
+<br/>If you intend to use it, update <a href="%marketplacesLink%" target="_blank">eBay Motors</a> marketplace, if no,
+<a href="%completeWizard%">disregard</a> this message.
+<br/><br>To find out how to use this option see our <a href="%docsLink%" target="_blank">documentation</a>.
+        ');
+
+        echo str_replace(
+            array('%ver%','%completeWizard%','%marketplacesLink%','%docsLink%'),
+            array($version,$completeWizardLink,$marketplacesLink,$docsLink),
+            $notification
+        );
+
+        ?>
+    </div>
+
+</div>

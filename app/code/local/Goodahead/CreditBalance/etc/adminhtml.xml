@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config>
+    <acl>
+        <resources>
+            <admin>
+                <children>
+                    <system>
+                        <children>
+                            <config>
+                                <children>
+                                    <creditbalance translate="title" module="goodahead_creditbalance">
+                                        <title>Credit balance</title>
+                                        <children>
+                                            <credit translate="title" module="goodahead_creditbalance">
+                                                <title>Credit Salance Setings</title>
+                                            </credit>
+                                        </children>
+                                    </creditbalance>
+                                </children>
+                            </config>
+                        </children>
+                    </system>
+                </children>
+            </admin>
+        </resources>
+    </acl>
+</config>

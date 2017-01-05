@@ -1,0 +1,54 @@
+<?xml version="1.0"?>
+<layout>
+    <customer_logged_in>
+        <reference name="header">
+            <block type="goodahead_creditbalance/credit" name="credit.balance" as="credit-balance" template="goodahead/creditbalance/balance.phtml"/>
+        </reference>
+    </customer_logged_in>
+
+    <sales_order_view>
+        <reference name="order_totals">
+            <block name="credit_balance_order_total" type="goodahead_creditbalance/sales_order_totals" />
+        </reference>
+    </sales_order_view>
+    <sales_order_print>
+        <reference name="order_totals">
+            <block name="credit_balance_order_total" type="goodahead_creditbalance/sales_order_totals" />
+        </reference>
+    </sales_order_print>
+    <sales_email_order_items>
+        <reference name="order_totals">
+            <block name="credit_balance_order_total" type="goodahead_creditbalance/sales_order_totals" />
+        </reference>
+    </sales_email_order_items>
+    <sales_order_invoice>
+        <reference name="invoice_totals">
+            <block name="credit_balance_invoice_total" type="goodahead_creditbalance/sales_order_invoice_totals" />
+        </reference>
+    </sales_order_invoice>
+    <sales_order_printinvoice>
+        <reference name="invoice_totals">
+            <block name="credit_balance_invoice_total" type="goodahead_creditbalance/sales_order_invoice_totals" />
+        </reference>
+    </sales_order_printinvoice>
+    <sales_email_order_invoice_items>
+        <reference name="invoice_totals">
+            <block name="credit_balance_invoice_total" type="goodahead_creditbalance/sales_order_invoice_totals" />
+        </reference>
+    </sales_email_order_invoice_items>
+    <sales_order_creditmemo>
+        <reference name="creditmemo_totals">
+            <block name="credit_balance_creditmemo_total" type="goodahead_creditbalance/sales_order_creditmemo_totals" />
+        </reference>
+    </sales_order_creditmemo>
+    <sales_order_printcreditmemo>
+        <reference name="creditmemo_totals">
+            <block name="credit_balance_creditmemo_total" type="goodahead_creditbalance/sales_order_creditmemo_totals" />
+        </reference>
+    </sales_order_printcreditmemo>
+    <sales_email_order_creditmemo_items>
+        <reference name="creditmemo_totals">
+            <block name="credit_balance_creditmemo_total" type="goodahead_creditbalance/sales_order_creditmemo_totals" />
+        </reference>
+    </sales_email_order_creditmemo_items>
+</layout>

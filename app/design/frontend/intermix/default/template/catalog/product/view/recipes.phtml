@@ -1,0 +1,5 @@
+<?php $product = Mage::registry('product'); ?>
+<?php $recipes = $product->getRecipes()?>
+<?php if ($product && !empty($recipes)):?>
+    <?php echo $product->getRecipes()?>
+<?php endif;?>

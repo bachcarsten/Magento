@@ -1,0 +1,1523 @@
+<?xml version="1.0"?>
+<config>
+    <sections>
+        <foomancommon>
+            <groups>
+                <extensions>
+                    <fields>
+                        <surcharge translate="label" module="surcharge">
+                            <label>Surcharge</label>
+                            <frontend_type>label</frontend_type>
+                            <frontend_model>surcharge/adminhtml_extensioninfo</frontend_model>
+                            <sort_order>22</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </surcharge>
+                    </fields>
+                </extensions>
+            </groups>
+        </foomancommon>
+        <sales>
+            <totals_sort>
+                <surcharge translate="label">
+                    <label>Surcharge</label>
+                    <frontend_type>text</frontend_type>
+                    <sort_order>60</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>0</show_in_store>
+                </surcharge>
+            </totals_sort>
+        </sales>
+        <tax>
+            <groups>
+                <cart_display>
+                    <fields>
+                        <surcharge translate="label" module="surcharge">
+                            <label>Display Surcharge Prices</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>tax/system_config_source_tax_display_type</source_model>
+                            <sort_order>31</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </surcharge>
+                    </fields>
+                </cart_display>
+                <sales_display>
+                    <fields>
+                        <surcharge translate="label" module="surcharge">
+                            <label>Display Surcharge Prices</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>tax/system_config_source_tax_display_type</source_model>
+                            <sort_order>31</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </surcharge>
+                    </fields>
+                </sales_display>
+            </groups>
+        </tax>
+        <surcharge translate="label" module="surcharge">
+            <label>Fooman Surcharge</label>
+            <tab>fooman</tab>
+            <show_in_default>1</show_in_default>
+            <show_in_website>1</show_in_website>
+            <show_in_store>1</show_in_store>
+            <sort_order>500</sort_order>
+            <groups>
+                <fooman_surcharge_all translate="label">
+                    <label>All Surcharges</label>
+                    <comment><![CDATA[<br />
+                    <div class="box">
+                    <p>For detailed instructions please refer to the Surcharge User Manual <a href="http://cdn.fooman.co.nz/media/custom/upload/UserManual-FoomanSurcharge.pdf">here</a>.</p>
+                    </div>
+                    ]]>
+                    </comment>
+                    <sort_order>500</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <fields>
+                        <surchargeon translate="label">
+                            <label>Calculate Surcharge On</label>
+                            <frontend_type>multiselect</frontend_type>
+                            <comment>Applies to all surcharges.</comment>
+                            <source_model>surcharge/system_totals</source_model>
+                            <backend_model>surcharge/system_totals</backend_model>
+                            <sort_order>10</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </surchargeon>
+                        <titleadjust translate="label">
+                            <label>Display Surcharge in Payment Information Step</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>20</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </titleadjust>
+                        <titleformat>
+                            <label>Surcharge Display Format</label>
+                            <depends><titleadjust>1</titleadjust></depends>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>25</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </titleformat>
+                    </fields>
+                </fooman_surcharge_all>
+                <fooman_surcharge_cc translate="label">
+                    <label>Credit Card Surcharge</label>
+                    <sort_order>1200</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <fields>
+                        <enabled translate="label">
+                            <label>Enable Credit Card Surcharge</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>10</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </enabled>
+                        <cctypes translate="label">
+                            <label>Credit Card Types</label>
+                            <frontend_type>multiselect</frontend_type>
+                            <source_model>surcharge/system_cctype</source_model>
+                            <sort_order>12</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </cctypes>
+                        <handlingtype translate="label">
+                            <label>Payment Surcharge Type</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>surcharge/system_handlingTypes</source_model>
+                            <sort_order>15</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </handlingtype>
+                        <rate translate="label">
+                            <label>Credit Card Surcharge %</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>17</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </rate>
+                        <fixed translate="label">
+                            <label>Fixed Transaction Cost</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>16</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </fixed>
+                        <description translate="label">
+                            <label>Surcharge Description</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>18</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </description>
+                        <applygroupfilter translate="label">
+                            <label>Apply Group Filter</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>80</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </applygroupfilter>
+                        <group translate="label">
+                            <label>Only for Customer Groups</label>
+                            <frontend_type>multiselect</frontend_type>
+                            <source_model>surcharge/system_groups</source_model>
+                            <sort_order>83</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </group>
+                    </fields>
+                </fooman_surcharge_cc>
+                <fooman_surcharge_cc2 translate="label">
+                    <label>Credit Card Surcharge 2</label>
+                    <sort_order>1220</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <fields>
+                        <enabled translate="label">
+                            <label>Enable Credit Card Surcharge</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>10</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </enabled>
+                        <cctypes translate="label">
+                            <label>Credit Card Types</label>
+                            <frontend_type>multiselect</frontend_type>
+                            <source_model>surcharge/system_cctype</source_model>
+                            <sort_order>12</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </cctypes>
+                        <handlingtype translate="label">
+                            <label>Payment Surcharge Type</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>surcharge/system_handlingTypes</source_model>
+                            <sort_order>15</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </handlingtype>
+                        <rate translate="label">
+                            <label>Credit Card Surcharge %</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>17</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </rate>
+                        <fixed translate="label">
+                            <label>Fixed Transaction Cost</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>16</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </fixed>
+                        <description translate="label">
+                            <label>Surcharge Description</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>18</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </description>
+                        <applygroupfilter translate="label">
+                            <label>Apply Group Filter</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>80</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </applygroupfilter>
+                        <group translate="label">
+                            <label>Only for Customer Groups</label>
+                            <frontend_type>multiselect</frontend_type>
+                            <source_model>surcharge/system_groups</source_model>
+                            <sort_order>83</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </group>
+                    </fields>
+                </fooman_surcharge_cc2>
+                <fooman_surcharge_method translate="label">
+                    <label>Payment Surcharge</label>
+                    <sort_order>1300</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <fields>
+                        <enabled translate="label">
+                            <label>Enable Payment Surcharge</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>20</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </enabled>
+                        <methods translate="label">
+                            <label>Payment Methods</label>
+                            <frontend_type>multiselect</frontend_type>
+                            <source_model>surcharge/system_methods</source_model>
+                            <sort_order>21</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </methods>
+                        <handlingtype translate="label">
+                            <label>Payment Surcharge Type</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>surcharge/system_handlingTypes</source_model>
+                            <sort_order>22</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </handlingtype>
+                        <rate translate="label">
+                            <label>Payment Surcharge %</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>24</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </rate>
+                        <fixed translate="label">
+                            <label>Fixed Transaction Cost</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>23</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </fixed>
+                        <description translate="label">
+                            <label>Surcharge Description</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>27</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </description>
+                        <applygroupfilter translate="label">
+                            <label>Apply Group Filter</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>80</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </applygroupfilter>
+                        <group translate="label">
+                            <label>Only for Customer Groups</label>
+                            <frontend_type>multiselect</frontend_type>
+                            <source_model>surcharge/system_groups</source_model>
+                            <sort_order>83</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </group>
+                        <minsurchargevalue translate="label">
+                            <label>Minimum</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>85</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </minsurchargevalue>
+                        <maxsurchargevalue translate="label">
+                            <label>Maximum</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>86</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </maxsurchargevalue>
+                        <applycountryfilter translate="label">
+                            <label>Apply Country Filter</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>surcharge/system_surchargeAddressTypes</source_model>
+                            <sort_order>90</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </applycountryfilter>
+                        <countries translate="label">
+                            <label>Countries</label>
+                            <frontend_type>multiselect</frontend_type>
+                            <source_model>adminhtml/system_config_source_country</source_model>
+                            <sort_order>91</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </countries>
+                    </fields>
+                </fooman_surcharge_method>
+                <fooman_surcharge_method2 translate="label">
+                    <label>Payment Surcharge 2</label>
+                    <sort_order>1320</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <fields>
+                        <enabled translate="label">
+                            <label>Enable Payment Surcharge</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>20</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </enabled>
+                        <methods translate="label">
+                            <label>Payment Methods</label>
+                            <frontend_type>multiselect</frontend_type>
+                            <source_model>surcharge/system_methods</source_model>
+                            <sort_order>21</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </methods>
+                        <handlingtype translate="label">
+                            <label>Payment Surcharge Type</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>surcharge/system_handlingTypes</source_model>
+                            <sort_order>22</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </handlingtype>
+                        <rate translate="label">
+                            <label>Payment Surcharge %</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>24</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </rate>
+                        <fixed translate="label">
+                            <label>Fixed Transaction Cost</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>23</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </fixed>
+                        <description translate="label">
+                            <label>Surcharge Description</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>27</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </description>
+                        <applygroupfilter translate="label">
+                            <label>Apply Group Filter</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>80</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </applygroupfilter>
+                        <group translate="label">
+                            <label>Only for Customer Groups</label>
+                            <frontend_type>multiselect</frontend_type>
+                            <source_model>surcharge/system_groups</source_model>
+                            <sort_order>83</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </group>
+                        <minsurchargevalue translate="label">
+                            <label>Minimum</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>85</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </minsurchargevalue>
+                        <maxsurchargevalue translate="label">
+                            <label>Maximum</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>86</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </maxsurchargevalue>
+                        <applycountryfilter translate="label">
+                            <label>Apply Country Filter</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>surcharge/system_surchargeAddressTypes</source_model>
+                            <sort_order>90</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </applycountryfilter>
+                        <countries translate="label">
+                            <label>Countries</label>
+                            <frontend_type>multiselect</frontend_type>
+                            <source_model>adminhtml/system_config_source_country</source_model>
+                            <sort_order>91</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </countries>
+                    </fields>
+                </fooman_surcharge_method2>
+                <fooman_surcharge_method3 translate="label">
+                    <label>Payment Surcharge 3</label>
+                    <sort_order>1330</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <fields>
+                        <enabled translate="label">
+                            <label>Enable Payment Surcharge</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>20</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </enabled>
+                        <methods translate="label">
+                            <label>Payment Methods</label>
+                            <frontend_type>multiselect</frontend_type>
+                            <source_model>surcharge/system_methods</source_model>
+                            <sort_order>21</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </methods>
+                        <handlingtype translate="label">
+                            <label>Payment Surcharge Type</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>surcharge/system_handlingTypes</source_model>
+                            <sort_order>22</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </handlingtype>
+                        <rate translate="label">
+                            <label>Payment Surcharge %</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>24</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </rate>
+                        <fixed translate="label">
+                            <label>Fixed Transaction Cost</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>23</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </fixed>
+                        <description translate="label">
+                            <label>Surcharge Description</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>27</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </description>
+                        <applygroupfilter translate="label">
+                            <label>Apply Group Filter</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>80</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </applygroupfilter>
+                        <group translate="label">
+                            <label>Only for Customer Groups</label>
+                            <frontend_type>multiselect</frontend_type>
+                            <source_model>surcharge/system_groups</source_model>
+                            <sort_order>83</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </group>
+                        <minsurchargevalue translate="label">
+                            <label>Minimum</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>85</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </minsurchargevalue>
+                        <maxsurchargevalue translate="label">
+                            <label>Maximum</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>86</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </maxsurchargevalue>
+                    </fields>
+                </fooman_surcharge_method3>
+                <fooman_surcharge_method4 translate="label">
+                    <label>Payment Surcharge 4</label>
+                    <sort_order>1340</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <fields>
+                        <enabled translate="label">
+                            <label>Enable Payment Surcharge</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>20</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </enabled>
+                        <methods translate="label">
+                            <label>Payment Methods</label>
+                            <frontend_type>multiselect</frontend_type>
+                            <source_model>surcharge/system_methods</source_model>
+                            <sort_order>21</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </methods>
+                        <handlingtype translate="label">
+                            <label>Payment Surcharge Type</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>surcharge/system_handlingTypes</source_model>
+                            <sort_order>22</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </handlingtype>
+                        <rate translate="label">
+                            <label>Payment Surcharge %</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>24</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </rate>
+                        <fixed translate="label">
+                            <label>Fixed Transaction Cost</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>23</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </fixed>
+                        <description translate="label">
+                            <label>Surcharge Description</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>27</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </description>
+                        <applygroupfilter translate="label">
+                            <label>Apply Group Filter</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>80</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </applygroupfilter>
+                        <group translate="label">
+                            <label>Only for Customer Groups</label>
+                            <frontend_type>multiselect</frontend_type>
+                            <source_model>surcharge/system_groups</source_model>
+                            <sort_order>83</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </group>
+                        <minsurchargevalue translate="label">
+                            <label>Minimum</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>85</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </minsurchargevalue>
+                        <maxsurchargevalue translate="label">
+                            <label>Maximum</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>86</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </maxsurchargevalue>
+                    </fields>
+                </fooman_surcharge_method4>
+                <fooman_surcharge_method5 translate="label">
+                    <label>Payment Surcharge 5</label>
+                    <sort_order>1350</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <fields>
+                        <enabled translate="label">
+                            <label>Enable Payment Surcharge</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>20</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </enabled>
+                        <methods translate="label">
+                            <label>Payment Methods</label>
+                            <frontend_type>multiselect</frontend_type>
+                            <source_model>surcharge/system_methods</source_model>
+                            <sort_order>21</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </methods>
+                        <handlingtype translate="label">
+                            <label>Payment Surcharge Type</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>surcharge/system_handlingTypes</source_model>
+                            <sort_order>22</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </handlingtype>
+                        <rate translate="label">
+                            <label>Payment Surcharge %</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>24</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </rate>
+                        <fixed translate="label">
+                            <label>Fixed Transaction Cost</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>23</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </fixed>
+                        <description translate="label">
+                            <label>Surcharge Description</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>27</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </description>
+                        <applygroupfilter translate="label">
+                            <label>Apply Group Filter</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>80</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </applygroupfilter>
+                        <group translate="label">
+                            <label>Only for Customer Groups</label>
+                            <frontend_type>multiselect</frontend_type>
+                            <source_model>surcharge/system_groups</source_model>
+                            <sort_order>83</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </group>
+                        <minsurchargevalue translate="label">
+                            <label>Minimum</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>85</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </minsurchargevalue>
+                        <maxsurchargevalue translate="label">
+                            <label>Maximum</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>86</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </maxsurchargevalue>
+                    </fields>
+                </fooman_surcharge_method5>
+                <fooman_surcharge_minenforced translate="label">
+                    <label>Enforce Minimum Order Amount</label>
+                    <sort_order>1400</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <fields>
+                        <enabled translate="label">
+                            <label>Enforce Minimum Amount</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <comment>Enabling Enforce Minimum Order Amount will add a fee which is the difference between current order amount and the specified minimum order amount.</comment>
+                            <sort_order>60</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </enabled>
+                        <minenforceamount translate="label">
+                            <label>Minimum Order Amount</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>65</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </minenforceamount>
+                        <description translate="label">
+                            <label>Surcharge Description</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>66</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </description>
+                        <applygroupfilter translate="label">
+                            <label>Apply Group Filter</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>83</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </applygroupfilter>
+                        <group translate="label">
+                            <label>Only for Customer Groups</label>
+                            <frontend_type>multiselect</frontend_type>
+                            <source_model>surcharge/system_groups</source_model>
+                            <sort_order>84</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </group>
+                    </fields>
+                </fooman_surcharge_minenforced>
+                <fooman_surcharge_minfee translate="label">
+                    <label>Small Order Fee</label>
+                    <sort_order>1500</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <fields>
+                        <enabled translate="label">
+                            <label>Enable Small Order Fee</label>
+                            <frontend_type>select</frontend_type>
+                            <comment>Enabling Small Order Fee will add a fee whenever the order is below the specified minimum order amount.</comment>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>10</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </enabled>
+                        <minfeeamount translate="label">
+                            <label>Minimum Amount</label>
+                            <comment>Add small order fee if order amount is below this amount.</comment>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>20</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </minfeeamount>
+                        <handlingtype translate="label">
+                            <label>Payment Surcharge Type</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>surcharge/system_handlingTypes</source_model>
+                            <sort_order>30</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </handlingtype>
+                        <fixed translate="label">
+                            <label>Fixed Transaction Cost</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>40</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </fixed>
+                        <rate translate="label">
+                            <label>Payment Surcharge %</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>50</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </rate>
+                        <description translate="label">
+                            <label>Fee Description</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>77</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </description>
+                        <applygroupfilter translate="label">
+                            <label>Apply Group Filter</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>83</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </applygroupfilter>
+                        <group translate="label">
+                            <label>Only for Customer Groups</label>
+                            <frontend_type>multiselect</frontend_type>
+                            <source_model>surcharge/system_groups</source_model>
+                            <sort_order>84</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </group>
+                    </fields>
+                </fooman_surcharge_minfee>
+                <fooman_surcharge_group translate="label">
+                    <label>Customer Group Surcharge</label>
+                    <sort_order>1600</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <fields>
+                        <enabled translate="label">
+                            <label>Enable Customer Group Surcharge</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>80</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </enabled>
+                        <group translate="label">
+                            <label>Customer Group</label>
+                            <comment>No Selection equals none.</comment>
+                            <frontend_type>multiselect</frontend_type>
+                            <source_model>surcharge/system_groups</source_model>
+                            <sort_order>84</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </group>
+                        <handlingtype translate="label">
+                            <label>Payment Surcharge Type</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>surcharge/system_handlingTypes</source_model>
+                            <sort_order>85</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </handlingtype>
+                        <rate translate="label">
+                            <label>Payment Surcharge %</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>88</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </rate>
+                        <fixed translate="label">
+                            <label>Fixed Transaction Cost</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>86</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </fixed>
+                        <description translate="label">
+                            <label>Surcharge Description</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>90</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </description>
+                    </fields>
+                </fooman_surcharge_group>
+                <fooman_surcharge_group2 translate="label">
+                    <label>Customer Group Surcharge 2</label>
+                    <sort_order>1620</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <fields>
+                        <enabled translate="label">
+                            <label>Enable Group Surcharge</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>80</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </enabled>
+                        <group translate="label">
+                            <label>Customer Group</label>
+                            <comment>No Selection equals none.</comment>
+                            <frontend_type>multiselect</frontend_type>
+                            <source_model>surcharge/system_groups</source_model>
+                            <sort_order>84</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </group>
+                        <handlingtype translate="label">
+                            <label>Payment Surcharge Type</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>surcharge/system_handlingTypes</source_model>
+                            <sort_order>85</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </handlingtype>
+                        <rate translate="label">
+                            <label>Payment Surcharge %</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>88</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </rate>
+                        <fixed translate="label">
+                            <label>Fixed Transaction Cost</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>86</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </fixed>
+                        <description translate="label">
+                            <label>Surcharge Description</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>90</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </description>
+                    </fields>
+                </fooman_surcharge_group2>
+                <fooman_surcharge_group3 translate="label">
+                    <label>Customer Group Surcharge 3</label>
+                    <sort_order>1630</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <fields>
+                        <enabled translate="label">
+                            <label>Enable Group Surcharge</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>80</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </enabled>
+                        <group translate="label">
+                            <label>Customer Group</label>
+                            <comment>No Selection equals none.</comment>
+                            <frontend_type>multiselect</frontend_type>
+                            <source_model>surcharge/system_groups</source_model>
+                            <sort_order>84</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </group>
+                        <handlingtype translate="label">
+                            <label>Payment Surcharge Type</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>surcharge/system_handlingTypes</source_model>
+                            <sort_order>85</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </handlingtype>
+                        <rate translate="label">
+                            <label>Payment Surcharge %</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>88</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </rate>
+                        <fixed translate="label">
+                            <label>Fixed Transaction Cost</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>86</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </fixed>
+                        <description translate="label">
+                            <label>Surcharge Description</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>90</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </description>
+                    </fields>
+                </fooman_surcharge_group3>
+                <fooman_surcharge_country translate="label">
+                    <label>Country Fee</label>
+                    <sort_order>1700</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <fields>
+                        <enabled translate="label">
+                            <label>Enable Country Fee</label>
+                            <frontend_type>select</frontend_type>
+                            <comment>Enabling Country Fee will add a fee when the chosen billing or shipping address is in this country.</comment>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>10</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </enabled>
+                        <applycountryfilter translate="label">
+                            <label>Based On</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>surcharge/system_countryAddressTypes</source_model>
+                            <sort_order>20</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </applycountryfilter>
+                        <countries translate="label">
+                            <label>Countries</label>
+                            <comment>Add a surcharge if the above address matches a country chosen here.</comment>
+                            <frontend_type>multiselect</frontend_type>
+                            <source_model>adminhtml/system_config_source_country</source_model>
+                            <sort_order>25</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </countries>
+                        <handlingtype translate="label">
+                            <label>Payment Surcharge Type</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>surcharge/system_handlingTypes</source_model>
+                            <sort_order>30</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </handlingtype>
+                        <rate translate="label">
+                            <label>Payment Surcharge %</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>60</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </rate>
+                        <fixed translate="label">
+                            <label>Fixed Transaction Cost</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>50</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </fixed>
+                        <description translate="label">
+                            <label>Surcharge Description</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>70</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </description>
+                        <applygroupfilter translate="label">
+                            <label>Apply Group Filter</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>80</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </applygroupfilter>
+                        <group translate="label">
+                            <label>Only for Customer Groups</label>
+                            <frontend_type>multiselect</frontend_type>
+                            <source_model>surcharge/system_groups</source_model>
+                            <sort_order>83</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </group>
+                    </fields>
+                </fooman_surcharge_country>
+                <fooman_surcharge_country2 translate="label">
+                    <label>Country Fee 2</label>
+                    <sort_order>1710</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <fields>
+                        <enabled translate="label">
+                            <label>Enable Country Fee</label>
+                            <frontend_type>select</frontend_type>
+                            <comment>Enabling Country Fee will add a fee when the chosen billing or shipping address is in this country.</comment>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>10</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </enabled>
+                        <addresstype translate="label">
+                            <label>Based On</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>surcharge/system_countryAddressTypes</source_model>
+                            <sort_order>20</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </addresstype>
+                        <countries translate="label">
+                            <label>Countries</label>
+                            <comment>Add a surcharge if the above address matches a country chosen here.</comment>
+                            <frontend_type>multiselect</frontend_type>
+                            <source_model>adminhtml/system_config_source_country</source_model>
+                            <sort_order>25</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </countries>
+                        <handlingtype translate="label">
+                            <label>Payment Surcharge Type</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>surcharge/system_handlingTypes</source_model>
+                            <sort_order>30</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </handlingtype>
+                        <rate translate="label">
+                            <label>Payment Surcharge %</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>60</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </rate>
+                        <fixed translate="label">
+                            <label>Fixed Transaction Cost</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>50</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </fixed>
+                        <description translate="label">
+                            <label>Surcharge Description</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>70</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </description>
+                        <applygroupfilter translate="label">
+                            <label>Apply Group Filter</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>80</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </applygroupfilter>
+                        <group translate="label">
+                            <label>Only for Customer Groups</label>
+                            <frontend_type>multiselect</frontend_type>
+                            <source_model>surcharge/system_groups</source_model>
+                            <sort_order>83</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </group>
+                    </fields>
+                </fooman_surcharge_country2>
+                <fooman_surcharge_region translate="label">
+                    <label>Region Fee</label>
+                    <sort_order>1800</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <fields>
+                        <enabled translate="label">
+                            <label>Enable Region Fee</label>
+                            <frontend_type>select</frontend_type>
+                            <comment>Enabling Region Fee will add a fee when the chosen billing or shipping address is in this region.</comment>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>10</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </enabled>
+                        <addresstype translate="label">
+                            <label>Based on</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>surcharge/system_addressTypes</source_model>
+                            <sort_order>20</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </addresstype>
+                        <regions translate="label">
+                            <label>Regions</label>
+                            <sort_order>30</sort_order>
+                            <comment>Add a surcharge if the above address matches a region chosen here.</comment>
+                            <frontend_type>multiselect</frontend_type>
+                            <source_model>adminhtml/system_config_source_allregion</source_model>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </regions>
+                        <handlingtype translate="label">
+                            <label>Payment Surcharge Type</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>surcharge/system_handlingTypes</source_model>
+                            <sort_order>50</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </handlingtype>
+                        <rate translate="label">
+                            <label>Payment Surcharge %</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>70</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </rate>
+                        <fixed translate="label">
+                            <label>Fixed Transaction Cost</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>60</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </fixed>
+                        <description translate="label">
+                            <label>Surcharge Description</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>70</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </description>
+                        <applygroupfilter translate="label">
+                            <label>Apply Group Filter</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>80</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </applygroupfilter>
+                        <group translate="label">
+                            <label>Only for Customer Groups</label>
+                            <frontend_type>multiselect</frontend_type>
+                            <source_model>surcharge/system_groups</source_model>
+                            <sort_order>83</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </group>
+                    </fields>
+                </fooman_surcharge_region>
+                <fooman_surcharge_shippingmethod translate="label">
+                    <label>Surcharge on Shipping Method</label>
+                    <sort_order>1900</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <fields>
+                        <enabled translate="label">
+                            <label>Enable Surcharge on Shipping Method</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>10</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </enabled>
+                        <shippingmethods translate="label">
+                            <label>Shipping Methods</label>
+                            <sort_order>30</sort_order>
+                            <frontend_type>multiselect</frontend_type>
+                            <source_model>surcharge/system_shippingMethods</source_model>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </shippingmethods>
+                        <handlingtype translate="label">
+                            <label>Payment Surcharge Type</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>surcharge/system_handlingTypes</source_model>
+                            <sort_order>40</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </handlingtype>
+                        <rate translate="label">
+                            <label>Payment Surcharge %</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>60</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </rate>
+                        <fixed translate="label">
+                            <label>Fixed Transaction Cost</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>50</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </fixed>
+                        <description translate="label">
+                            <label>Surcharge Description</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>70</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </description>
+                        <applygroupfilter translate="label">
+                            <label>Apply Group Filter</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>80</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </applygroupfilter>
+                        <group translate="label">
+                            <label>Only for Customer Groups</label>
+                            <frontend_type>multiselect</frontend_type>
+                            <source_model>surcharge/system_groups</source_model>
+                            <sort_order>83</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </group>
+                    </fields>
+                </fooman_surcharge_shippingmethod>
+                <fooman_surcharge_product translate="label">
+                    <label>Surcharge on Products</label>
+                    <sort_order>2000</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <fields>
+                        <enabled translate="label">
+                            <label>Enable Surcharge on Products</label>
+                            <frontend_type>select</frontend_type>
+                            <comment/>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>10</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </enabled>
+                        <type translate="label">
+                            <label>Payment Surcharge Type</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>surcharge/system_productSurchargeTypes</source_model>
+                            <sort_order>50</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </type>
+                        <description translate="label">
+                            <label>Surcharge Description</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>70</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </description>
+                    </fields>
+                </fooman_surcharge_product>
+            </groups>
+        </surcharge>
+        <sales>
+            <groups>
+                <totals_sort>
+                    <fields>
+                        <surcharge translate="label comment" module="surcharge">
+                            <label>Surcharge</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>5</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </surcharge>
+                    </fields>
+                </totals_sort>
+            </groups>
+        </sales>
+        <tax>
+            <groups>
+                <classes>
+                    <fields>
+                        <surcharge_tax_class translate="label comment" module="surcharge">
+                            <label>Tax Class For Surcharge</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>surcharge/system_surchargeTaxClass</source_model>
+                            <sort_order>35</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </surcharge_tax_class>
+                    </fields>
+                </classes>
+                <calculation>
+                    <fields>
+                        <tax_included_in_surcharge translate="label comment" module="surcharge">
+                            <label>Surcharge Prices</label>
+                            <frontend_type>select</frontend_type>
+                            <backend_model>tax/config_price_include</backend_model>
+                            <source_model>tax/system_config_source_priceType</source_model>
+                            <sort_order>36</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </tax_included_in_surcharge>
+                    </fields>
+                </calculation>
+            </groups>
+        </tax>
+    </sections>
+</config>

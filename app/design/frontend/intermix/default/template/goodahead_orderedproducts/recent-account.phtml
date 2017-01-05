@@ -1,0 +1,49 @@
+<div class="account-box ad-orders">
+<?php $_productsCollection = $this->getProducts(); ?>
+    <div class="head-alt">
+        <h4 class="title"><?php echo $this->__('My Order Form') ?></h4>
+        <?php if( sizeof($_productsCollection) > 0 ): ?><a href="<?php echo $this->getUrl('customer/history') ?>"><?php echo $this->__('View All') ?></a><?php endif; ?>
+    </div>
+<?php //echo $this->getMessagesBlock()->getGroupedHtml() ?>
+<?php if( sizeof($_productsCollection) > 0 ): ?>
+	<form name="product_addtocart_form" id="product_addtocart_form" action="<?php echo $this->getAddUrl(); ?>" method="post"> 
+    <table cellspacing="0" class="data-table recent-order" id="my-orders-table">
+        <thead>
+            <tr>
+                <th><?php echo $this->__('SKU') ?></th>
+                <th><?php echo $this->__('Product Name') ?></th>
+                <th><?php echo $this->__('Price') ?></th>
+                <th><?php echo $this->__('QTY') ?></th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>     
+        <?php $_odd = ''; ?>
+            <?php foreach ($_productsCollection as $_product): ?>
+                <tr class="<?php echo ($_odd = ($_odd ? 'odd' : '')) ?>">
+                    <td><strong><?php echo $_product->getSku() ?></strong></td>
+                    <td><span class="nobr"><a href="<?php echo $_product->getProductUrl();?>"><?php echo $_product->getName() ?></a></span></td>
+                    <td><?php echo $this->getPriceHtml($_product, true) ?>&nbsp;</td>
+                    <td><input name="qty[<?php echo $_product->getId()?>]" type="text" class="input-text qty" id="qty" maxlength="12" value="<?php echo (int) $this->getMinimalQty($_product) ?>"/></td>
+                </tr>
+            <?php endforeach; ?>
+        </tbody>
+    </table>
+    <div class="button-set">
+        <a href="#" onclick="productAddToCartForm.submit(); return false;"><img src="<?php echo $this->getSkinUrl('images/btn_add_to_cart.gif');?>" alt="<?php echo $this->__('Add to Cart') ?>" class="v-middle" style="margin:0 0 0 5px;" /></a>
+    </div>
+    </form>
+<script type="text/javascript">
+//<![CDATA[
+    var productAddToCartForm = new VarienForm('product_addtocart_form');
+    productAddToCartForm.submit = function() {
+        this.form.submit();
+    }.bind(productAddToCartForm);
+//]]>
+</script>
+    
+<script type="text/javascript">decorateTable('my-orders-table')</script>
+<?php else: ?>
+    <p><?php echo $this->__('You have no products ordered.'); ?></p>
+<?php endif; ?>
+</div>

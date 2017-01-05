@@ -1,0 +1,33 @@
+<script type="text/javascript">
+
+</script>
+
+<?php
+
+$version = Mage::helper('M2ePro/Module')->getVersion();
+$completeWizardLink = $this->getUrl("*/adminhtml_wizard_amazonNewAsin/complete");
+
+?>
+
+<div class="wizard-note">
+
+    <a class="wizard-close" href="javascript:void(0);" onclick="WizardHandlerObj.complete('<?php echo $completeWizardLink; ?>');" title="<?php echo Mage::helper('M2ePro')->__('Complete Wizard') ?>">&times;</a>
+
+    <div>
+        <?php
+
+        $notification = Mage::helper('M2ePro')->__(
+            'TODO TEXT
+            Click to <a href="%completeWizard%">Complete</a> the Wizard.</strong><br />'
+        );
+
+        echo str_replace(
+            array('%ver%','%completeWizard%'),
+            array($version,$completeWizardLink),
+            $notification
+        );
+
+        ?>
+    </div>
+
+</div>

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config>
+    <acl>
+        <resources>
+            <admin>
+                <children>
+                    <system>
+                        <children>
+                            <config>
+                                <children>
+                                    <cartlimit translate="title" module="goodahead_cartlimit">
+                                        <title>Cart Limit</title>
+                                        <children>
+                                            <limit translate="title" module="goodahead_catalog">
+                                                <title>Cart Limit Setings</title>
+                                            </limit>
+                                        </children>
+                                    </cartlimit>
+                                </children>
+                            </config>
+                        </children>
+                    </system>
+                </children>
+            </admin>
+        </resources>
+    </acl>
+</config>

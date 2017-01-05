@@ -1,0 +1,24 @@
+<script type="text/javascript">
+	if (typeof dataLayer !== "undefined")
+	{
+		for (a = 0, b = EC.length; a < b; a++)
+		{
+			EC[a].apply(this,[dataLayer]);
+		}
+
+		/* AdWords Remarketing */
+		if (window.google_tag_params)
+		{
+			dataLayer.push(
+			{  
+				'event':				'fireRemarketingTag',
+				'google_tag_params': 	window.google_tag_params
+			});
+		}
+	}
+	else
+	{
+		console.log('dataLayer[] is not intialized. Check if GTM is installed properly');
+	}
+</script>
+<script type="text/javascript" src="//www.googleadservices.com/pagead/conversion.js"></script>

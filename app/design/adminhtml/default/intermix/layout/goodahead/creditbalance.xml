@@ -1,0 +1,48 @@
+<?xml version="1.0"?>
+<layout>
+    <adminhtml_customer_edit>
+        <reference name="customer_edit_tabs">
+            <action method="addTab" ifconfig="creditbalance/credit/enabled">
+                <name>goodahead_creditbalance</name>
+                <block>goodahead_creditbalance/adminhtml_customer_edit_tab_credit</block>
+            </action>
+        </reference>
+    </adminhtml_customer_edit>
+
+    <adminhtml_sales_order_view>
+        <reference name="order_totals">
+            <block type="goodahead_creditbalance/adminhtml_sales_order_totals" name="credit_balance" />
+        </reference>
+    </adminhtml_sales_order_view>
+    <adminhtml_sales_order_invoice_view>
+        <reference name="invoice_totals">
+            <block type="goodahead_creditbalance/adminhtml_sales_order_invoice_totals" name="credit_balance" />
+        </reference>
+    </adminhtml_sales_order_invoice_view>
+    <adminhtml_sales_order_invoice_new>
+        <reference name="invoice_totals">
+            <block type="goodahead_creditbalance/adminhtml_sales_order_invoice_totals" name="credit_balance" />
+        </reference>
+    </adminhtml_sales_order_invoice_new>
+    <adminhtml_sales_order_invoice_updateqty>
+        <reference name="invoice_totals">
+            <block type="goodahead_creditbalance/adminhtml_sales_order_invoice_totals" name="credit_balance" />
+        </reference>
+    </adminhtml_sales_order_invoice_updateqty>
+    <adminhtml_sales_order_creditmemo_new>
+        <reference name="creditmemo_totals">
+            <block name="credit_balance" type="goodahead_creditbalance/adminhtml_sales_order_creditmemo_totals" />
+        </reference>
+    </adminhtml_sales_order_creditmemo_new>
+    <adminhtml_sales_order_creditmemo_updateqty>
+        <reference name="creditmemo_totals">
+            <block name="credit_balance" type="goodahead_creditbalance/adminhtml_sales_order_creditmemo_totals" />
+        </reference>
+    </adminhtml_sales_order_creditmemo_updateqty>
+    <adminhtml_sales_order_creditmemo_view>
+        <reference name="creditmemo_totals">
+            <block name="credit_balance" type="goodahead_creditbalance/adminhtml_sales_order_creditmemo_totals" />
+        </reference>
+    </adminhtml_sales_order_creditmemo_view>
+
+</layout>

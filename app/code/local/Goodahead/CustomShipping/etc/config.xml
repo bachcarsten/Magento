@@ -1,0 +1,50 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <Goodahead_CustomShipping>
+            <version>0.0.8</version>
+        </Goodahead_CustomShipping>
+    </modules>        
+    <global> 
+        <models>
+            <goodahead_custom_shipping>
+                <class>Goodahead_CustomShipping_Model</class>
+            </goodahead_custom_shipping>
+        </models>
+        <helpers>
+            <goodahead_custom_shipping>
+                <class>Goodahead_CustomShipping_Helper</class>
+            </goodahead_custom_shipping>
+        </helpers>
+        <blocks>
+            <goodahead_custom_shipping>
+                <class>Goodahead_CustomShipping_Block</class>
+            </goodahead_custom_shipping>
+            <adminhtml>
+                <rewrite>
+                    <sales_order_create_shipping_method_form>Goodahead_CustomShipping_Block_Adminhtml_Sales_Order_Create_Shipping_Method_Form</sales_order_create_shipping_method_form>
+                </rewrite>
+            </adminhtml>
+        </blocks>
+    </global>
+    <adminhtml>
+        <layout>
+            <updates>
+                <goodahead_custom_shipping>
+                    <file>custom_shipping.xml</file>
+                </goodahead_custom_shipping>
+            </updates>
+        </layout>
+    </adminhtml>
+    <default>
+        <carriers>
+            <goodahead_ownprice>
+                <active>1</active>
+                <model>goodahead_custom_shipping/carrier_ownprice</model>
+                <name>Own Shipping Price</name>
+                <showmethod>0</showmethod>
+                <title>Your Price:</title>
+            </goodahead_ownprice>
+        </carriers>
+    </default>
+</config>

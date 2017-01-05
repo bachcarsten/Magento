@@ -1,0 +1,214 @@
+<script type="text/javascript">
+
+	window.dataLayer = window.dataLayer || [], collection = [];
+
+    AEC.debug = parseInt(<?php echo $this->getDebug() ?>);
+
+    AEC.ajax = function(context,dataLayer)
+	{
+		var element = jQuery(context), qty = element.data('quantity');
+
+		if (element.data('grouped'))
+		{
+			for (u = 0, y = window.G.length; u < y; u++)
+			{
+				var qty = Math.abs(jQuery('[name="super_group[' + window.G[u].id + ']"]').val());
+
+				if (qty)
+				{
+					collection.push(
+					{
+						'name': 		window.G[u].name,
+						'id': 		    window.G[u].id,
+						'price': 		window.G[u].price,
+						'category': 	window.G[u].category,
+						'brand':		window.G[u].brand,
+						'quantity': 	qty
+					})
+				}
+			}
+		}
+		else 
+		{
+			collection.push(
+			{
+				'name': 		element.data('name'),
+				'id': 		    element.data('id'),
+				'price': 		element.data('price'),
+				'category': 	element.data('category'),
+				'brand':		element.data('brand'),
+				'quantity': 	qty
+			})
+		}
+		
+		var data = 
+		{
+			'event': 'addToCart',
+			'ecommerce': 
+			{
+				'currencyCode': '<?php echo Mage::app()->getStore()->getCurrentCurrencyCode() ?>',
+				'add': 
+				{
+					'products': collection
+				}
+			},
+			'eventCallback': function()
+			{
+				return eval(element.data('onclick'));
+			}
+		}
+		
+		dataLayer.push(data);
+
+		return false;
+	}
+
+    AEC.ajaxDetail = function(context,dataLayer)
+	{
+		var element = jQuery(context), qty = jQuery(':radio[name=qty]:checked, :text[name=qty], select[name=qty]').eq(0).val();
+
+		if (element.data('grouped'))
+		{
+			for (u = 0, y = window.G.length; u < y; u++)
+			{
+				var qty = Math.abs(jQuery('[name="super_group[' + window.G[u].id + ']"]').val());
+
+				if (qty)
+				{
+					collection.push(
+					{
+						'name': 		window.G[u].name,
+						'id': 		    window.G[u].id,
+						'price': 		window.G[u].price,
+						'category': 	window.G[u].category,
+						'brand':		window.G[u].brand,
+						'quantity': 	qty
+					})
+				}
+			}
+		}
+		else 
+		{
+			collection.push(
+			{
+				'name': 		element.data('name'),
+				'id': 		    element.data('id'),
+				'price': 		element.data('price'),
+				'category': 	element.data('category'),
+				'variant':		element.data('variant'),
+				'brand':		element.data('brand'),
+				'quantity': 	qty
+			})
+		}
+		
+		var data = 
+		{
+			'event': 'addToCart',
+			'ecommerce': 
+			{
+				'currencyCode': '<?php echo Mage::app()->getStore()->getCurrentCurrencyCode() ?>',
+				'add': 
+				{
+					'products': collection
+				}
+			},
+			'eventCallback': function()
+			{
+				return productAddToCartForm.submit();
+			}
+		}
+		
+		dataLayer.push(data);
+
+		return false;
+	}
+	
+	
+	AEC.remove = function(context, dataLayer)
+	{
+		var element = jQuery(context);
+
+		var data = 
+		{
+			'event': 'removeFromCart',
+			'ecommerce': 
+			{
+				'remove': 
+				{   
+					'products': 
+					[
+						{ 
+							'name': 		element.data('name'),
+							'id': 			element.data('id'),
+							'price': 		element.data('price'),
+							'category': 	element.data('category'),
+							'brand':		element.data('brand'),
+							'quantity': 	element.data('quantity')
+						}
+					]
+				}
+			},
+			'eventCallback': function()
+			{
+				if (AEC.debug)
+				{
+					console.log('GTM: Fired GTM event - ' + data.event);
+				}
+				else return true;
+			}
+		}
+
+		
+		if (confirm('Are you sure you would like to remove this item from the shopping cart?'))
+		{
+			dataLayer.push(data);
+
+			return true;	
+		}
+		
+		return false;
+	}
+
+	AEC.click = function(context,dataLayer)
+	{
+		var element = jQuery(context);
+
+		var data = 
+		{
+			'event': 'productClick',
+			'ecommerce': 
+			{
+				'click': 
+				{
+					'actionField': {'list': 'Search Results'},
+					'products': 
+					[
+						{
+							'name': 		element.data('name'),
+							'id': 			element.data('id'),
+							'price': 		element.data('price'),
+							'category': 	element.data('category'),
+							'brand':		element.data('brand'),
+							'quantity': 	element.data('quantity')
+						}
+					]
+				}
+			},
+			'eventCallback': function() 
+			{
+				document.location = element.attr('href');
+
+				return true;
+			}
+		};
+
+		dataLayer.push(data);
+
+		return false;
+	}
+	
+	AEC.placeOrder = function(context, review)
+	{
+		return true;
+	}
+</script>

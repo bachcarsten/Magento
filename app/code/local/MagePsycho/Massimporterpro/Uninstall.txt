@@ -1,0 +1,21 @@
+==============================================================================
+[ Disable the extension ]
+==============================================================================
+1. Change <active>true</active> to <active>false</active> in file:
+app/etc/modules/MagePsycho_Massimporterpro.xml
+
+==============================================================================
+[ Uninstall / Remove the extension ]
+==============================================================================
+1. Remove the following files:
+    - app/etc/modules/MagePsycho_Massimporterpro.xml
+    - app/code/local/MagePsycho/Massimporterpro/*
+    - app/design/adminhtml/default/default/layout/magepsycho_massimporterpro.xml
+    - app/locale/en_US/template/email/magepsycho/massimporterpro/*
+    - var/magepsycho/massimporterpro/*
+2. Remove setup script
+    - SQL: DELETE FROM core_resource WHERE code = 'magepsycho_massimporterpro_setup'
+3. Remove system configuration data
+    - SQL: DELETE FROM core_config_data WHERE path LIKE '%magepsycho_massimporterpro%';
+4. Remove table(s)
+    - SQL: DROP TABLE IF EXISTS magepsycho_massimporterpro_logs;

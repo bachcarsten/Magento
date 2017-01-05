@@ -1,0 +1,88 @@
+<?php
+/**
+ * Magento
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Academic Free License (AFL 3.0)
+ * that is bundled with this package in the file LICENSE_AFL.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://opensource.org/licenses/afl-3.0.php
+ * If you did not receive a copy of the license and are unable to
+ * obtain it through the world-wide-web, please send an email
+ * to license@magentocommerce.com so we can send you a copy immediately.
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade Magento to newer
+ * versions in the future. If you wish to customize Magento for your
+ * needs please refer to http://www.magentocommerce.com for more information.
+ *
+ * @category    design
+ * @package     base_default
+ * @copyright   Copyright (c) 2012 Magento Inc. (http://www.magentocommerce.com)
+ * @license     http://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
+ */
+?>
+<?php if (!$this->dontShowCommonFreight()): ?>
+<div class="inner-box">
+    <?php if (!$this->helper('wsafreightcommon')->isFixedDeliveryType() && !$this->helper('wsafreightcommon')->isResSelectorEnabled()): ?>
+        <p><label for="shipto_type"><?php echo $this->__('Address Type') ?> <?php echo $this->getShiptoTypeHtmlSelect($this->getShiptoType()) ?></label><br /></p>
+    <?php endif; ?>
+    <?php if ($this->helper('wsafreightcommon')->isNotifyOptionEnabled() && !$this->helper('wsafreightcommon')->isNotifyRequired()): ?>
+        <div class="a-left input-checkbox">
+            <input type="checkbox" name="allow_notify" id="allow_notify" value="1" onchange="liftgateListener()" <?php if ($this->getNotifyRequired()):?> checked="checked"<?php endif;?> />
+            <label for="allow_notify"><?php echo $this->__('Scheduled Appointment?') ?></label>
+        </div>
+    <?php endif; ?>
+    <?php if ($this->helper('wsafreightcommon')->isInsideDeliveryEnabled()): ?>
+        <div class="a-left input-checkbox">
+            <input type="checkbox" name="inside_delivery" id="inside_delivery" value="1" <?php if ($this->getInsideDelivery()):?> checked="checked"<?php endif;?> />
+            <label for="inside_delivery"><?php echo $this->__('Inside Delivery?') ?></label>
+        </div>
+    <?php endif; ?>
+    <?php if (!$this->helper('wsafreightcommon')->isFixedLiftgateFee()): ?>
+        <div class="a-left input-checkbox">
+            <input type="checkbox" name="liftgate_required" id="liftgate_required" value="1" onchange="liftgateListener()" <?php if ($this->getLiftgateRequired()):?> checked="checked"<?php endif; ?> />
+            <label for="liftgate_required"><?php echo $this->__('Do you need a Liftgate?') ?></label>
+        </div>
+    <?php endif; ?>
+    <br>
+    <div id="retrieving-rates"></div>
+</div>
+<?php endif; ?>
+
+<?php echo $this->getChildChildHtml('additionalorig'); ?>
+
+<?php if (!$this->dontShowCommonFreight()): ?>
+<script type="text/javascript">
+    function liftgateListener() {
+
+        var checkedLiftgate = document.getElementById('liftgate_required').checked;
+        var checkedNotify = '';
+        var checkedInside = '';
+
+        var shiptoType = document.getElementById("shipto_type");
+        var selectedShipto = shiptoType.options[shiptoType.selectedIndex].value;
+
+        if($('allow_notify') != undefined) {
+            checkedNotify = document.getElementById('allow_notify').checked;
+        }
+
+        if($('inside_delivery') != undefined) {
+            checkedInside = document.getElementById('inside_delivery').checked;
+        }
+
+        document.getElementById('retrieving-rates').innerHTML += "<img src='<?php echo $this->getSkinUrl('images/opc-ajax-loader.gif') ?>'> Retrieving rates...";
+
+        new Ajax.Updater('checkout-shipping-method-load', '<?php echo $this->getUrl("wsafreightcommon/ajax/getFreight", array("_secure"=>true)) ?>', {
+            method: 'get',
+            parameters: {liftgate_required: checkedLiftgate, notify_required: checkedNotify, shipto_type: selectedShipto,inside_required: checkedInside},
+            onComplete: function(transport) {
+                document.getElementById('retrieving-rates').innerHTML = "";
+            }
+        });
+
+    }
+</script>
+<?php endif; ?>

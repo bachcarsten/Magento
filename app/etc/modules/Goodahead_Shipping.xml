@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config>
+    <modules>
+        <Goodahead_Shipping>
+            <active>true</active>
+            <codePool>local</codePool>
+            <depends>
+                <Mage_Shipping />
+            </depends>
+        </Goodahead_Shipping>
+    </modules>
+</config>

@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<layout>
+    <adminhtml_customer_edit>
+        <reference name="customer_edit_tabs">
+            <block type="goodahead_authorizenet/adminhtml_customer" name="goodahead_authorizenet_adminhtml_customer">
+                <action method="addTab"/>
+            </block>
+        </reference>
+    </adminhtml_customer_edit>
+    <adminhtml_sales_order_create_index>
+        <reference name="head">
+            <action method="addJs"><file>goodahead/adminhtml/order.js</file></action>
+        </reference>
+    </adminhtml_sales_order_create_index>
+</layout>

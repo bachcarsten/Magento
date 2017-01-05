@@ -1,0 +1,432 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Magento Webshopapps Shipping Module
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Open Software License (OSL 3.0)
+ * that is bundled with this package in the file LICENSE.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://opensource.org/licenses/osl-3.0.php
+ * If you did not receive a copy of the license and are unable to
+ * obtain it through the world-wide-web, please send an email
+ * to license@magentocommerce.com so we can send you a copy immediately.
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade Magento to newer
+ * versions in the future. If you wish to customize Magento for your
+ * needs please refer to http://www.magentocommerce.com for more information.
+ *
+ * ProductMatrix
+ *
+ * @category   Webshopapps
+ * @package    Webshopapps_UPS Freight
+ * @copyright   Copyright (c) 2013 Zowta Ltd (http://www.WebShopApps.com)
+ *              Copyright, 2013, Zowta, LLC - US license
+ * @license    http://www.webshopapps.com/license/license.txt - Commercial license
+*/
+-->
+<config>
+	<sections>
+		<carriers translate="label" module="shipping">
+			<groups>
+				<wsaupsfreight translate="label">
+					<label>Webshopapps UPS Freight</label>
+					<frontend_type>text</frontend_type>
+					<sort_order>2</sort_order>
+					<show_in_default>1</show_in_default>
+					<show_in_website>1</show_in_website>
+					<show_in_store>1</show_in_store>
+					  <comment>
+                 <![CDATA[
+                <div style="padding:10px;background-color:#fff;border:1px solid #ddd;margin-bottom:7px;">
+                This module was developed by <a href="http://www.webshopapps.com" target="_blank">WebShopApps.com</a> - <b>Magento Shipping Extension Specialists</b>.
+                <br/> For docs & examples refer to the WebShopApps <a href="http://wiki.webshopapps.com/extensions/ups-freight">wiki</a>.
+                </div>
+                  ]]>
+                </comment>
+					<fields>
+						<active translate="label">
+							<label>Enabled</label>
+							<frontend_type>select</frontend_type>
+							<source_model>adminhtml/system_config_source_yesno</source_model>
+							<sort_order>10</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</active>
+						<credentials_heading translate="label">
+							<label>Credentials</label>
+							<frontend_model>wsacommon_adminhtml/system_config_form_field_heading
+							</frontend_model>
+							<sort_order>12</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+						</credentials_heading>
+						<serial translate="label">
+							<label>Serial Key</label>
+							<frontend_type>obscure</frontend_type>
+							<backend_model>adminhtml/system_config_backend_encrypted
+							</backend_model>
+							<sort_order>15</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>0</show_in_website>
+							<show_in_store>0</show_in_store>
+						</serial>
+						<title translate="label">
+							<label>Title</label>
+							<frontend_type>text</frontend_type>
+							<sort_order>20</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</title>
+						<name translate="label">
+							<label>Name</label>
+							<frontend_type>text</frontend_type>
+							<sort_order>22</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</name>
+						<gateway_url translate="label">
+							<label>Gateway URL</label>
+							<frontend_type>select</frontend_type>
+							<source_model>wsaupsfreight/carrier_wsaupsfreight_source_gatewayurl
+							</source_model>
+							<sort_order>25</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>0</show_in_store>
+						</gateway_url>
+						<userid translate="label">
+							<label>User ID</label>
+							<frontend_type>obscure</frontend_type>
+							<backend_model>adminhtml/system_config_backend_encrypted
+							</backend_model>
+							<sort_order>30</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>0</show_in_store>
+						</userid>
+						<password translate="label">
+							<label>Password</label>
+							<frontend_type>obscure</frontend_type>
+							<backend_model>adminhtml/system_config_backend_encrypted
+							</backend_model>
+							<sort_order>35</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>0</show_in_store>
+						</password>
+						<access_license_number translate="label">
+							<label>Access License Number</label>
+							<frontend_type>obscure</frontend_type>
+							<backend_model>adminhtml/system_config_backend_encrypted
+							</backend_model>
+							<sort_order>36</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>0</show_in_store>
+						</access_license_number>
+						<shipper_number translate="label">
+							<label>Shipper Number</label>
+							<frontend_type>text</frontend_type>
+							<sort_order>38</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>0</show_in_store>
+							<comment>Required for negotiated rates; 6-character UPS.
+							</comment>
+						</shipper_number>
+						<mode_xml translate="label comment">
+                            <label>Mode</label>
+                            <comment>Enables/Disables SSL verification of Magento server by UPS.</comment>
+                            <frontend_type>select</frontend_type>
+                            <source_model>usa/shipping_carrier_ups_source_mode</source_model>
+                            <sort_order>39</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </mode_xml>
+                        <test_mode translate="label comment">
+                            <label>Test Mode</label>
+                            <comment>
+                            	Enable this when you're applying for UPS Freight Production Access. Never leave this enabled on a live site.
+                            	See here for further information - <![CDATA[<strong><a href="http://wiki.webshopapps.com/extensions/ups-freight/configuration" target="_blank">Link</a></strong>]]>
+                            </comment>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>44</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </test_mode>
+						<payer_heading translate="label">
+							<label>Payor Details</label>
+							<frontend_model>wsacommon_adminhtml/system_config_form_field_heading
+							</frontend_model>
+							<sort_order>45</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<comment>If you do not enter these details no rates will be returned</comment>
+						</payer_heading>
+						<payment_terms translate="label">
+							<label>Payment terms</label>
+							<frontend_type>select</frontend_type>
+							<source_model>wsaupsfreight/carrier_wsaupsfreight_source_payment</source_model>
+							<sort_order>46</sort_order>
+							<comment>Shown as relation to shipment in ltlservices.com</comment>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>0</show_in_store>
+						</payment_terms>
+						<payor_name translate="label">
+							<label>Name</label>
+							<frontend_type>text</frontend_type>
+							<sort_order>47</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>0</show_in_store>
+							<comment>MANDATORY</comment>
+						</payor_name>
+						<payor_country_id translate="label">
+							<label>Country</label>
+							<frontend_type>select</frontend_type>
+							<frontend_class>countries</frontend_class>
+							<source_model>adminhtml/system_config_source_country
+							</source_model>
+							<sort_order>48</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>0</show_in_store>
+							<comment>MANDATORY</comment>
+						</payor_country_id>
+						<payor_region_id translate="label">
+							<label>Region/State</label>
+							<frontend_type>text</frontend_type>
+							<sort_order>49</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>0</show_in_store>
+							<comment>MANDATORY</comment>
+						</payor_region_id>
+						<payor_city translate="label">
+							<label>City</label>
+							<frontend_type>text</frontend_type>
+							<sort_order>50</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>0</show_in_store>
+							<comment>MANDATORY</comment>
+						</payor_city>
+						<payor_postcode translate="label">
+							<label>ZIP/Postal Code</label>
+							<frontend_type>text</frontend_type>
+							<sort_order>51</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>0</show_in_store>
+							<comment>MANDATORY</comment>
+						</payor_postcode>
+						<payor_street_address translate="label">
+							<label>Street Address</label>
+							<frontend_type>text</frontend_type>
+							<sort_order>52</sort_order>
+							<required>1</required>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>0</show_in_store>
+							<comment>MANDATORY</comment>
+						</payor_street_address>
+						<when_show_heading translate="label">
+							<label>Display Criteria</label>
+							<frontend_model>wsacommon_adminhtml/system_config_form_field_heading
+							</frontend_model>
+							<sort_order>54</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+						</when_show_heading>
+						<allowed_methods translate="label">
+							<label>Allowed Method</label>
+							<frontend_type>select</frontend_type>
+							<source_model>wsaupsfreight/carrier_wsaupsfreight_source_method
+							</source_model>
+							<sort_order>55</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>0</show_in_store>
+							<can_be_empty>1</can_be_empty>
+						</allowed_methods>
+						<apply_zero_fee translate="label">
+							<label>Show Zero Fee when No Rates Found</label>
+							<frontend_type>select</frontend_type>
+							<source_model>adminhtml/system_config_source_yesno</source_model>
+							<sort_order>70</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+							<comment>If YES and UPS Freight rates cannot be returned will display
+								zero rates</comment>
+						</apply_zero_fee>
+						<zero_fee_text translate="label">
+							<label>Zero Fee Text</label>
+							<frontend_type>text</frontend_type>
+							<sort_order>75</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</zero_fee_text>
+						<max_cost translate="label">
+							<label>Maximum shipping cost</label>
+							<frontend_type>text</frontend_type>
+							<sort_order>76</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</max_cost>
+						<packaging_heading translate="label">
+							<label>Packaging</label>
+							<frontend_model>wsacommon_adminhtml/system_config_form_field_heading
+							</frontend_model>
+							<sort_order>80</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+						</packaging_heading>
+						<unit_of_measure translate="label">
+							<label>Weight Unit</label>
+							<frontend_type>select</frontend_type>
+							<source_model>wsaupsfreight/carrier_wsaupsfreight_source_unitofmeasure
+							</source_model>
+							<sort_order>81</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</unit_of_measure>
+						<container translate="label">
+							<label>Container</label>
+							<frontend_type>select</frontend_type>
+							<source_model>wsaupsfreight/carrier_wsaupsfreight_source_container
+							</source_model>
+							<sort_order>83</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>0</show_in_store>
+						</container>
+						<free_heading translate="label">
+							<label>Free Shipping</label>
+							<frontend_model>wsacommon_adminhtml/system_config_form_field_heading
+							</frontend_model>
+							<sort_order>85</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+						</free_heading>
+						<free_shipping_enable>
+							<label>Free shipping with minimum order amount</label>
+							<frontend_type>select</frontend_type>
+							<source_model>adminhtml/system_config_source_enabledisable
+							</source_model>
+							<sort_order>180</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>0</show_in_store>
+						</free_shipping_enable>
+						<free_shipping_subtotal translate="label">
+							<label>Minimum order amount for free shipping</label>
+							<frontend_type>text</frontend_type>
+							<sort_order>185</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>0</show_in_store>
+						</free_shipping_subtotal>
+						<free_method translate="label">
+							<label>Free method</label>
+							<frontend_type>select</frontend_type>
+							<frontend_class>free-method</frontend_class>
+							<source_model>wsaupsfreight/carrier_wsaupsfreight_source_freemethod
+							</source_model>
+							<sort_order>190</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>0</show_in_store>
+						</free_method>
+						<standard_heading translate="label">
+							<label>Standard Shipping</label>
+							<frontend_model>wsacommon_adminhtml/system_config_form_field_heading
+							</frontend_model>
+							<sort_order>195</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+						</standard_heading>
+						<handling_type translate="label">
+							<label>Calculate handling fee</label>
+							<frontend_type>select</frontend_type>
+							<source_model>shipping/source_handlingType</source_model>
+							<sort_order>200</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>0</show_in_store>
+						</handling_type>
+						<handling_fee translate="label">
+							<label>Handling fee</label>
+							<frontend_type>text</frontend_type>
+							<sort_order>210</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</handling_fee>
+						<sort_order translate="label">
+							<label>Sort order</label>
+							<frontend_type>text</frontend_type>
+							<sort_order>300</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</sort_order>
+						<sallowspecific translate="label">
+							<label>Ship to applicable countries</label>
+							<frontend_type>select</frontend_type>
+							<sort_order>250</sort_order>
+							<frontend_class>shipping-applicable-country</frontend_class>
+							<source_model>adminhtml/system_config_source_shipping_allspecificcountries
+							</source_model>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</sallowspecific>
+						<specificcountry translate="label">
+							<label>Ship to specific countries</label>
+							<frontend_type>multiselect</frontend_type>
+							<sort_order>260</sort_order>
+							<source_model>adminhtml/system_config_source_country
+							</source_model>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</specificcountry>
+                        <showmethod translate="label">
+                            <label>Show method if not applicable</label>
+                            <frontend_type>select</frontend_type>
+                            <sort_order>270</sort_order>
+                            <frontend_class>shipping-skip-hide</frontend_class>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </showmethod>
+						<specificerrmsg translate="label">
+							<label>Displayed error message</label>
+							<frontend_type>textarea</frontend_type>
+							<sort_order>280</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</specificerrmsg>
+					</fields>
+				</wsaupsfreight>
+			</groups>
+		</carriers>
+	</sections>
+</config>

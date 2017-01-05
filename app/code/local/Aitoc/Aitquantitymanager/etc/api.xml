@@ -1,0 +1,65 @@
+<?xml version="1.0"?>
+<config>
+    <api>
+        <resources>
+            <cataloginventory_stock_item translate="title" module="cataloginventory">
+                <model>cataloginventory/stock_item_api</model>
+                <title>Aitoc Multilocation Inventory API</title>
+                <acl>cataloginventory</acl>
+                <methods>
+                    <list translate="title" module="cataloginventory">
+                        <title>Retrieve stock data by product ids</title>
+                        <method>items</method>
+                        <acl>cataloginventory/info</acl>
+                    </list>
+                    <update translate="title" module="cataloginventory">
+                        <title>Update product stock data</title>
+                        <acl>cataloginventory/update</acl>
+                    </update>
+                </methods>
+                <faults module="cataloginventory">
+                    <not_exists>
+                        <code>101</code>
+                        <message>Product not exists.</message>
+                    </not_exists>
+                    <not_updated>
+                        <code>102</code>
+                        <message>Product inventory not updated. Details in error message.</message>
+                    </not_updated>
+                </faults>
+            </cataloginventory_stock_item>
+        </resources>
+        <resources_alias>
+            <product_stock>cataloginventory_stock_item</product_stock>
+        </resources_alias>
+        <!--v2>
+            <resources_function_prefix>
+                <product_stock>catalogInventoryStockItem</product_stock>
+            </resources_function_prefix>
+        </v2-->
+        <acl>
+            <resources>
+                <cataloginventory translate="title" module="cataloginventory">
+                    <title>Catalog Inventory</title>
+                    <sort_order>4</sort_order>
+                    <update translate="title" module="cataloginventory">
+                        <title>Update</title>
+                    </update>
+                    <info translate="title" module="cataloginventory">
+                        <title>Retrieve stock data</title>
+                    </info>
+                </cataloginventory>
+            </resources>
+        </acl>
+    </api>
+</config>
+<!--
+/**
+ * Product:     Multi-Location Inventory
+ * Package:     Aitoc_Aitquantitymanager_2.1.3_2.0.1_314694
+ * Purchase ID: nILwa7zsqWm4gpHcLdhf7zqePRi3Axk569Gj6pIMvu
+ * Generated:   2012-10-24 15:10:42
+ * File path:   app/code/local/Aitoc/Aitquantitymanager/etc/api.xml
+ * Copyright:   (c) 2012 AITOC, Inc.
+ */
+-->

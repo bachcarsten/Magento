@@ -1,0 +1,4 @@
+"Order by SKU", "Order by Item Number"
+"Product with SKU: '%s' was not found","Product with item number: '%s' was not found"
+"SKU", "Item Number"
+"Please, enter an SKU or choose a file", "Please, enter an item number or choose a file"

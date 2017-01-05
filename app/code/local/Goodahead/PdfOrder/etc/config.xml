@@ -1,0 +1,46 @@
+<?xml version="1.0"?>
+<config>
+    <Goodahead_PdfOrder>
+        <version>0.1.0</version>
+    </Goodahead_PdfOrder>
+    <global>
+        <models>
+            <goodahead_pdf_order>
+                <class>Goodahead_PdfOrder_Model</class>
+            </goodahead_pdf_order>
+        </models>
+        <blocks>
+            <goodahead_pdf_order>
+                <class>Goodahead_PdfOrder_Block</class>
+            </goodahead_pdf_order>
+        </blocks>
+        <helpers>
+            <goodahead_pdf_order>
+                <class>Goodahead_PdfOrder_Helper</class>
+            </goodahead_pdf_order>
+        </helpers>
+    </global>
+    <adminhtml>
+        <events>
+            <adminhtml_block_html_before>
+                <observers>
+                    <goodahead_pdf_order_adminhtml_block_html_before>
+                        <class>goodahead_pdf_order/observer</class>
+                        <method>blockPrepareOrderGrid</method>
+                    </goodahead_pdf_order_adminhtml_block_html_before>
+                </observers>
+            </adminhtml_block_html_before>
+        </events>
+    </adminhtml>
+    <admin>
+        <routers>
+            <adminhtml>
+                <args>
+                    <modules>
+                        <goodahead_pdf_order before="Mage_Adminhtml">Goodahead_PdfOrder_Adminhtml</goodahead_pdf_order>
+                    </modules>
+                </args>
+            </adminhtml>
+        </routers>
+    </admin>
+</config>

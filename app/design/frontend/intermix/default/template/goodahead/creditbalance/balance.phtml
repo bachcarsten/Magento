@@ -1,0 +1,5 @@
+<?php if ($this->isEnabled() && $this->getBalance() > 0): ?>
+    <div class="credit-balance">
+        <?php echo $this->__('Credit balance: '); ?><?php echo Mage::helper('core')->currency($this->getBalance()) ?>
+    </div>
+<?php endif; ?>

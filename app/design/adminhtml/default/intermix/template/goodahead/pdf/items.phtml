@@ -1,0 +1,9 @@
+<?php
+    $firstPage = $this->getParentBlock()->hasFirstPage() ? false : true;
+    $this->getParentBlock()->setFirstPage(false);
+?>
+
+<?php foreach ($this->getItems() as $item): ?>
+    <?php echo $this->getItemHtml($item, !$firstPage); ?>
+    <?php $firstPage = false; ?>
+<?php endforeach; ?>

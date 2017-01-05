@@ -1,0 +1,147 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Magento
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Academic Free License (AFL 3.0)
+ * that is bundled with this package in the file LICENSE_AFL.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://opensource.org/licenses/afl-3.0.php
+ * If you did not receive a copy of the license and are unable to
+ * obtain it through the world-wide-web, please send an email
+ * to license@magentocommerce.com so we can send you a copy immediately.
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade Magento to newer
+ * versions in the future. If you wish to customize Magento for your
+ * needs please refer to http://www.magentocommerce.com for more information.
+ *
+ * @category    Mage
+ * @package     Mage_Customer
+ * @copyright   Copyright (c) 2010 Magento Inc. (http://www.magentocommerce.com)
+ * @license     http://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
+ */
+-->
+<config>
+    <modules>
+        <Goodahead_CustomerCode>
+            <version>0.1.0</version>
+        </Goodahead_CustomerCode>
+    </modules>
+
+    <global>
+        <fieldsets>
+            <customer_account>
+                <promo_code><create>1</create></promo_code>
+            </customer_account>
+        </fieldsets>
+        <blocks>
+            <goodahead_customercode><class>Goodahead_CustomerCode_Block</class></goodahead_customercode>
+        </blocks>
+        <helpers>
+            <goodahead_customercode><class>Goodahead_CustomerCode_Helper</class></goodahead_customercode>
+        </helpers>
+        <resources>
+            <goodahead_customercode_setup>
+                <setup>
+                    <module>Goodahead_CustomerCode</module>
+                    <class>Mage_Customer_Model_Entity_Setup</class>
+                </setup>
+                <connection>
+                    <use>core_setup</use>
+                </connection>
+            </goodahead_customercode_setup>
+            <goodahead_customercode_write>
+                <connection>
+                    <use>core_write</use>
+                </connection>
+            </goodahead_customercode_write>
+            <goodahead_customercode_read>
+                <connection>
+                    <use>core_read</use>
+                </connection>
+            </goodahead_customercode_read>
+        </resources>
+        <models>
+            <goodahead_customercode>
+                <class>Goodahead_CustomerCode_Model</class>
+            </goodahead_customercode>
+        </models>
+    </global>
+    <adminhtml>
+        <events>
+            <core_block_abstract_prepare_layout_after>
+                <observers>
+                    <goodahead_customercode_group_edit_form_layout_update>
+                        <type>singleton</type>
+                        <class>goodahead_customercode/observer</class>
+                        <method>customerGroupEditFormLayoutUpdate</method>
+                    </goodahead_customercode_group_edit_form_layout_update>
+                </observers>
+            </core_block_abstract_prepare_layout_after>
+        </events>
+    </adminhtml>
+    <admin>
+        <routers>
+            <adminhtml>
+                <args>
+                    <modules>
+                        <Goodahead_CustomerCode before="Mage_Adminhtml">Goodahead_CustomerCode_Adminhtml</Goodahead_CustomerCode>
+                    </modules>
+                </args>
+            </adminhtml>
+        </routers>
+    </admin>
+    <frontend>
+        <events>
+            <customer_save_before>
+                <observers>
+                    <goodahead_customercode_customer_register_apply_promo_code>
+                        <type>singleton</type>
+                        <class>goodahead_customercode/observer</class>
+                        <method>customerRegisterApplyPromoCode</method>
+                    </goodahead_customercode_customer_register_apply_promo_code>
+                </observers>
+            </customer_save_before>
+        
+        </events>
+        <routers>
+            <customer>
+                <args>
+                    <modules>
+                        <Goodahead_CustomerCode before="Mage_Customer">Goodahead_CustomerCode</Goodahead_CustomerCode>
+                    </modules>
+                </args>
+            </customer>
+        </routers>
+        <routers>
+            <customer>
+                <use>standard</use>
+                <args>
+                    <module>Mage_Customer</module>
+                    <frontName>customer</frontName>
+                </args>
+            </customer>
+        </routers>
+        <translate>
+            <modules>
+                <Mage_Customer>
+                    <files>
+                        <default>Mage_Customer.csv</default>
+                    </files>
+                </Mage_Customer>
+            </modules>
+        </translate>
+      <layout>
+          <updates>
+              <customer module="Mage_Customer">
+                  <file>customer.xml</file>
+              </customer>
+          </updates>
+      </layout>
+    </frontend>
+
+</config>

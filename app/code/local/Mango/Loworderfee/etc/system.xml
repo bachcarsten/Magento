@@ -1,0 +1,127 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Magento
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Open Software License (OSL 3.0)
+ * that is bundled with this package in the file LICENSE.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://opensource.org/licenses/osl-3.0.php
+ * If you did not receive a copy of the license and are unable to
+ * obtain it through the world-wide-web, please send an email
+ * to license@magentocommerce.com so we can send you a copy immediately.
+ *
+ * @category   Mage
+ * @package    Mango_Ajaxlist
+ * @copyright  Copyright (c) 2004-2007 Irubin Consulting Inc. DBA Varien (http://www.varien.com)
+ * @license    http://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
+ */
+-->
+<config>
+    
+    <sections>
+        <sales>
+            <groups>
+                <minimum_order translate="label">
+                    <label>Minimum Order Amount and Low Order Fee</label>
+
+                    <fields>
+                        <low_order_fee_active translate="label">
+                            <label>Enable Low Order Fee</label>
+                            <sort_order>12</sort_order>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>0</show_in_store>
+                            <comment><![CDATA[This will disable the low minimum order alerts and add a low order fee instead. It will apply to multiple-address shipping if <b>Validate Each Address Separately in Multi-address Checkout</b> is set to yes]]></comment>
+                        </low_order_fee_active>
+                        <low_order_fee_method translate="label">
+                            <label>Low Order Fee Calculation</label>
+                            <comment>Low Order Fee Calculation: fixed or percentage.</comment>
+                            <frontend_type>select</frontend_type>
+                            <source_model>loworderfee/system_config_source_method</source_model>
+                            <sort_order>14</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </low_order_fee_method>
+                        <low_order_fee_customer_group_enable translate="label">
+                            <label>Apply To Selected Customer Groups</label>
+                            <sort_order>13</sort_order>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>0</show_in_store>
+                            <comment><![CDATA[This will enable the validation and low order fee for selected customer groups only]]></comment>
+                        </low_order_fee_customer_group_enable>
+                        
+                        <low_order_fee_customer_group translate="label">
+                            <label>Apply to Customer Groups</label>
+                            <frontend_type>multiselect</frontend_type>
+                            <sort_order>14</sort_order>
+                            <source_model>loworderfee/system_config_source_customer_group_multiselect</source_model>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </low_order_fee_customer_group>
+
+                        <low_order_fee translate="label">
+                            <label>Low Order Fee</label>
+                            <comment>Low Order Fee.</comment>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>15</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </low_order_fee>
+                        <low_order_fee_reference translate="label">
+                            <label>Subtotal</label>
+                            <comment>Compare minimum order amount with</comment>
+                            <frontend_type>select</frontend_type>
+                            <source_model>loworderfee/system_config_source_reference</source_model>
+                            <sort_order>15</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </low_order_fee_reference>
+                        <low_order_fee_tax_class translate="label">
+                            <label>Tax Class for Low Order Fee</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>loworderfee/system_config_source_taxclass</source_model>
+                            <sort_order>16</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </low_order_fee_tax_class>
+                        <low_order_fee_title translate="label comment">
+                            <label>Title</label>
+                            <sort_order>17</sort_order>
+                            <frontend_type>text</frontend_type>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <comment>To be display next to the low order fee in the cart and checkout when applicable.</comment>
+                        </low_order_fee_title>
+                    </fields>
+                </minimum_order>
+
+                <totals_sort>
+                    <fields>
+                        <loworderfee translate="label">
+                            <label>Low Order Fee</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>4</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </loworderfee>
+                    </fields>
+                </totals_sort>
+            </groups>
+        </sales>
+    </sections>
+</config>

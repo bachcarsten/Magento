@@ -1,0 +1,168 @@
+<?php
+/**
+ * @var Goodahead_Authorizenet_Block_Adminhtml_Customer_Info_Form $this
+ */
+?>
+<div class="entry-edit-head">
+    <h4 class="icon-head head-edit-form fieldset-legend"><?php echo $this->__('Create Payment Profile'); ?></h4>
+</div>
+<div class="fieldset">
+    <div class="hor-scroll">
+        <table class="form-list" cellspacing="0">
+            <tr class="cc_type">
+                <td class="label">
+                    <label for="goodahead_authorizenet_cc_type"><?php echo $this->__('Credit Card Type'); ?></label>
+                </td>
+                <td class="value">
+                    <select name="authorizenet[profile][cc_type]" id="goodahead_authorizenet_cc_type" autocomplete="off">
+                        <option value=""><?php echo $this->__('--Please Select--'); ?></option>
+                        <?php foreach ($this->getCcAvailableTypes() as $typeCode => $typeName): ?>
+                            <option value="<?php echo $typeCode; ?>"><?php echo $typeName; ?></option>
+                        <?php endforeach; ?>
+                    </select>
+                </td>
+            </tr>
+            <tr class="cc_number">
+                <td class="label">
+                    <label for="goodahead_authorizenet_card_number"><?php echo $this->__('Credit Card Number'); ?></label>
+                </td>
+                <td class="value">
+                    <input type="text" class="input-text" title="Credit Card Number" name="authorizenet[profile][card_number]" id="goodahead_authorizenet_card_number" autocomplete="off">
+                </td>
+            </tr>
+            <tr class="expiration">
+                <td class="label">
+                    <label for="goodahead_authorizenet_expiration"><?php echo $this->__('Expiration Date'); ?></label>
+                </td>
+                <td class="value">
+                    <select class="month" name="authorizenet[profile][cc_exp_month]" id="goodahead_authorizenet_expiration" autocomplete="off" style="width:110px;">
+                        <option selected="selected" value=""><?php echo $this->__('Month'); ?></option>
+                        <option value="1"><?php echo $this->__('01 - January'); ?></option>
+                        <option value="2"><?php echo $this->__('02 - February'); ?></option>
+                        <option value="3"><?php echo $this->__('03 - March'); ?></option>
+                        <option value="4"><?php echo $this->__('04 - April'); ?></option>
+                        <option value="5"><?php echo $this->__('05 - May'); ?></option>
+                        <option value="6"><?php echo $this->__('06 - June'); ?></option>
+                        <option value="7"><?php echo $this->__('07 - July'); ?></option>
+                        <option value="8"><?php echo $this->__('08 - August'); ?></option>
+                        <option value="9"><?php echo $this->__('09 - September'); ?></option>
+                        <option value="10"><?php echo $this->__('10 - October'); ?></option>
+                        <option value="11"><?php echo $this->__('11 - November'); ?></option>
+                        <option value="12"><?php echo $this->__('12 - December'); ?></option>
+                    </select>
+                    <select class="year" name="authorizenet[profile][cc_exp_year]" id="goodahead_authorizenet_expiration_yr" autocomplete="off" style="width:110px;">
+                        <option selected="selected" value=""><?php echo $this->__('Year'); ?></option>
+                        <option value="2010"><?php echo $this->__('2010'); ?></option>
+                        <option value="2011"><?php echo $this->__('2011'); ?></option>
+                        <option value="2012"><?php echo $this->__('2012'); ?></option>
+                        <option value="2013"><?php echo $this->__('2013'); ?></option>
+                        <option value="2014"><?php echo $this->__('2014'); ?></option>
+                        <option value="2015"><?php echo $this->__('2015'); ?></option>
+                        <option value="2016"><?php echo $this->__('2016'); ?></option>
+                        <option value="2017"><?php echo $this->__('2017'); ?></option>
+                        <option value="2018"><?php echo $this->__('2018'); ?></option>
+                        <option value="2019"><?php echo $this->__('2019'); ?></option>
+                        <option value="2020"><?php echo $this->__('2020'); ?></option>
+                    </select>
+                </td>
+            </tr>
+            <?php if ($this->hasVerification()): ?>
+                <tr class="cc_cid">
+                    <td class="label">
+                        <label for="goodahead_authorizenet_card_code"><?php echo $this->__('Card Verification Number'); ?></label>
+                    </td>
+                    <td class="value">
+                        <input type="text" name="authorizenet[profile][card_code]" id="goodahead_authorizenet_card_code" class="input-text" title="Card Verification Number" autocomplete="off" style="width:110px;">
+                    </td>
+                </tr>
+            <?php endif; ?>
+            <tr class="firstname">
+                <td class="label">
+                    <label for="goodahead_authorizenet_firstname"><?php echo  $this->__('First Name'); ?></label>
+                </td>
+                <td class="value">
+                    <input type="text" id="goodahead_authorizenet_firstname" class="input-text" title="<?php echo  $this->__('First Name'); ?>" name="authorizenet[profile][firstname]"/>
+                </td>
+            </tr>
+            <tr class="lastname">
+                <td class="label">
+                    <label for="goodahead_authorizenet_lastname"><?php echo  $this->__('Last Name'); ?></label>
+                </td>
+                <td class="value">
+                    <input type="text" id="goodahead_authorizenet_lastname" class="input-text" title="<?php echo  $this->__('Last Name'); ?>" name="authorizenet[profile][lastname]"/>
+                </td>
+            </tr>
+            <tr class="company">
+                <td class="label">
+                    <label for="goodahead_authorizenet_company"><?php echo  $this->__('Company'); ?></label>
+                </td>
+                <td class="value">
+                    <input type="text" id="goodahead_authorizenet_company" class="input-text" title="<?php echo  $this->__('Company'); ?>" name="authorizenet[profile][company]"/>
+                </td>
+            </tr>
+            <tr class="address">
+                <td class="label">
+                    <label for="goodahead_authorizenet_address"><?php echo  $this->__('Address'); ?></label>
+                </td>
+                <td class="value">
+                    <input type="text" id="goodahead_authorizenet_address" class="input-text" title="<?php echo  $this->__('Address'); ?>" name="authorizenet[profile][address]"/>
+                </td>
+            </tr>
+            <tr class="city">
+                <td class="label">
+                    <label for="goodahead_authorizenet_city"><?php echo  $this->__('City'); ?></label>
+                </td>
+                <td class="value">
+                    <input type="text" id="goodahead_authorizenet_city" class="input-text" title="<?php echo  $this->__('City'); ?>" name="authorizenet[profile][city]"/>
+                </td>
+            </tr>
+            <tr class="state">
+                <td class="label">
+                    <label for="goodahead_authorizenet_state"><?php echo  $this->__('State'); ?></label>
+                </td>
+                <td class="value">
+                    <input type="text" id="goodahead_authorizenet_state" class="input-text" title="<?php echo  $this->__('State'); ?>" name="authorizenet[profile][state]"/>
+                </td>
+            </tr>
+            <tr class="zip">
+                <td class="label">
+                    <label for="goodahead_authorizenet_zip"><?php echo  $this->__('Zip'); ?></label>
+                </td>
+                <td class="value">
+                    <input type="text" id="goodahead_authorizenet_zip" class="input-text" title="<?php echo  $this->__('Zip'); ?>" name="authorizenet[profile][zip]"/>
+                </td>
+            </tr>
+            <tr class="country">
+                <td class="label">
+                    <label for="goodahead_authorizenet_country"><?php echo  $this->__('Country'); ?></label>
+                </td>
+                <td class="value">
+                    <input type="text" id="goodahead_authorizenet_country" class="input-text" title="<?php echo  $this->__('Country'); ?>" name="authorizenet[profile][country]"/>
+                </td>
+            </tr>
+            <tr class="phone">
+                <td class="label">
+                    <label for="goodahead_authorizenet_phone"><?php echo  $this->__('Phone Number'); ?></label>
+                </td>
+                <td class="value">
+                    <input type="text" id="goodahead_authorizenet_phone" class="input-text" title="<?php echo  $this->__('Phone Number'); ?>" name="authorizenet[profile][phone]"/>
+                </td>
+            </tr>
+            <tr>
+                <td class="label">
+                    <label for="goodahead_authorizenet_fax"><?php echo  $this->__('Fax Number'); ?></label>
+                </td>
+                <td class="value">
+                    <input type="text" id="goodahead_authorizenet_fax" class="input-text" title="<?php echo  $this->__('Fax Number'); ?>" name="authorizenet[profile][fax]"/>
+                </td>
+            </tr>
+        </table>
+    </div>
+</div>
+<input type="hidden" id="goodahead_authorizenet_profile_id" name="authorizenet[profile][id]" />
+<button id="goodahead-authorizenet-remove" class="scalable cancel delete-address" type="button" name="goodahead_authorizenet_delete">
+    <span><?php echo $this->__('Delete'); ?></span>
+</button>
+<button id="goodahead-authorizenet-save" class="scalable add delete-address" type="button" name="goodahead_authorizenet_save">
+    <span><?php echo $this->__('Save'); ?></span>
+</button>

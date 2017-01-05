@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config>
+    <acl>
+        <resources>
+            <admin>
+                <children>
+                    <system>
+                        <children>
+                            <config>
+                                <children>
+                                    <productdiscount translate="title" module="goodahead_productdiscount">
+                                        <title>Product Discount</title>
+                                        <children>
+                                            <options translate="title" module="goodahead_productdiscount">
+                                                <title>Product Discount Options</title>
+                                            </options>
+                                        </children>
+                                    </productdiscount>
+                                </children>
+                            </config>
+                        </children>
+                    </system>
+                </children>
+            </admin>
+        </resources>
+    </acl>
+</config>

@@ -1,0 +1,6 @@
+<?xml version="1.0"?>
+<layout>
+    <goodahead_privatesales_type translate="label" module="goodahead_privatesales">
+        <label>Private Sales</label>
+    </goodahead_privatesales_type>
+</layout>

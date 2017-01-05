@@ -1,0 +1,20 @@
+0.1	- Initial version, based on Conway
+
+1.0	- Fixed undefined shipper variable error
+1.1     - Added docs
+
+1.2     - Fixed free shipping conflicts
+
+1.3	- Added support for Handling Matrix
+1.4	- Added support for automated UPS Freight Test Mode.
+1.5 	- Changed to use Wsafreightcommon.
+1.6     - Including latest common code
+2.3	- Fixed issue with accessories.Also using freight common
+2.4	- Updated orders grid for CE1.4.0
+2.5 	- Updated for latest common and freightcommon
+2.6 	- Made changes to test mode to make it easier to use. Ensured payor zip is passed to UPS.
+3.0 	- Refactored to move common code to wsafreightcommon.
+3.1	- Added support for converting lbs to kgs
+4.0 	- Moved to community
+4.1	- Latest version of FreightCommon
+4.2	- FREIGHT-56 - Ensured UPS test mode only requests the correct test parameters

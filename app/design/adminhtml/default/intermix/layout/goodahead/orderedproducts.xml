@@ -1,0 +1,36 @@
+<layout version="0.1.0">
+    <adminhtml_customer_edit>
+        <reference name="customer_edit_tabs">
+            <action method="addTabAfter">
+                <name>customer_edit_tab_action</name>
+                <block>goodahead_orderedproducts/adminhtml_customer_edit_tab_products</block>
+                <after>tags</after>
+            </action>
+        </reference>
+    </adminhtml_customer_edit>
+
+    <adminhtml_goodahead_orderedproducts_grid>
+        <block type="core/text_list" name="root" output="toHtml">
+            <block type="goodahead_orderedproducts/adminhtml_customer_edit_tab_products_grid" name="product.grid"/>
+            <block type="adminhtml/widget_grid_serializer" name="grid_serializer">
+                <reference name="grid_serializer">
+                    <action method="initSerializerBlock">
+                        <grid_block_name>product.grid</grid_block_name>
+                        <data_callback>getSelectedProducts</data_callback>
+                        <hidden_input_name>goodahead_orderedproducts</hidden_input_name>
+                        <reload_param_name>products</reload_param_name>
+                    </action>
+                    <action method="addColumnInputName">
+                        <input_name>position</input_name>
+                    </action>
+                </reference>
+            </block>
+        </block>
+    </adminhtml_goodahead_orderedproducts_grid>
+
+    <adminhtml_goodahead_orderedproducts_gridonly>
+        <block type="core/text_list" name="root" output="toHtml">
+            <block type="goodahead_orderedproducts/adminhtml_customer_edit_tab_products_grid" name="product.grid"/>
+        </block>
+    </adminhtml_goodahead_orderedproducts_gridonly>
+</layout>

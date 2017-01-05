@@ -1,0 +1,105 @@
+<div class="padder">
+    <?php echo $this->getMessagesBlock()->getGroupedHtml() ?>
+    <div class="page-head">
+        <h3><?php echo $this->__('Order by SKU') ?></h3>
+    </div>
+</div>
+<div class="add-by-sku">
+    <!--  form begins  -->
+    <form id="order-by-sku-form" action="<?php echo $this->getFormAction(); ?>" method="post" enctype="multipart/form-data">
+        <!--  grid  -->
+        <div class="block-content">
+            <table id="sku-table" class="sku-table data-table" cellspacing="0" cellpadding="0">
+                <colgroup>
+                    <col class="col-sku" />
+                    <col class="col-qty" />
+                    <col class="col-rem" />
+                </colgroup>
+                <thead>
+                <tr>
+                    <th><?php echo $this->__('SKU') ?></th>
+                    <th class="last"><?php echo $this->__('Qty') ?></th>
+                    <th class="remove"></th>
+                </tr>
+                </thead>
+                <tfoot>
+                <tr class="last">
+                    <td >
+                    </td>
+                    <td colspan="2" class="last">
+                        <span id="add-row-button" title="<?php echo $this->__('Add Row') ?>"
+                              class="add-row"><?php echo $this->__('+ Add Row') ?>
+                        </span>
+                    </td>
+                </tr>
+                </tfoot>
+                <tbody>
+                <tr class="sku-row-0">
+                    <td>
+                        <div class="input-box">
+                            <input type="text" name="products[0][sku]" class="input-text required-sku-or-file" />
+                        </div>
+                    </td>
+                    <td class="last">
+                        <div class="input-box">
+                            <input type="text" name="products[0][qty]" class="input-text qty validate-number" value="1"/>
+                        </div>
+                    </td>
+                    <td id="remove-0" class="remove">X</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+            <div class="actions">
+                <button id="sku-submit-button"
+                        type="submit" title="<?php echo $this->__('Add to Cart') ?>"
+                        class="button"><img src="<?php echo $this->getSkinUrl('images/btn_add_to_cart.gif') ?>" />
+                </button>
+            </div>
+        <!-- File -->
+        <div class="fieldset file-upload">
+            <ul class="form-list">
+                <li>
+                    <label for="sku_import_file"><?php echo $this->__('File'); ?></label>
+                    <div class="input-box">
+                        <input id="sku_import_file" type="file" name="sku_file" class="required-sku-or-file sku-import-csv"/>
+                        <?php /*
+                            <p class="sample-file"><a href="<?php echo $this->getSampleFileUrl() ?>"><?php echo $this->__('Download sample CSV file'); ?></a></p>
+                        */ ?>
+                        <div id="button-reset-file" class="btn-reset"><?php echo $this->__('Reset')?></div>
+                        <p class="text-note"><?php echo $this->__('File extensions allowed: .csv'); ?></p>
+                        <p class="text-note">
+                            <?php echo $this->__('File must contain two columns, with "sku" and "qty" in the header row.'); ?>
+                        </p>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </form>
+    <!--  form ends -->
+</div>
+
+
+<script type="text/javascript">
+    document.observe('dom:loaded', function () {
+        Validation.add('required-sku-or-file', '<?php echo $this->__('Please, enter an SKU or choose a file') ?>', function (v) {
+            $$('.required-sku-or-file').each( function (element) {
+                if (element.value) {
+                    v = true;
+                    throw $break;
+                }
+            });
+            return v;
+        });
+        var validation = new Validation('order-by-sku-form');
+        var orderBySkuForm = new OrderBySkuForm('order-by-sku-form');
+        $('add-row-button').observe('click', function () {
+            orderBySkuForm.addRow();
+        });
+
+        // reset file
+        $('button-reset-file').observe('click', function () {
+            $('sku_import_file').replace('<input id="sku_import_file" type="file" name="sku_file" class="sku-import-csv"/>');
+        });
+    });
+</script>

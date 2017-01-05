@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <Intermix_CatalogRule>
+            <version>0.0.1</version>
+        </Intermix_CatalogRule>
+    </modules>
+    <global>
+        <models>
+            <intermix_catalogrule><class>Intermix_CatalogRule_Model</class></intermix_catalogrule>
+            <catalogrule>
+                <rewrite>
+                    <observer>Intermix_CatalogRule_Model_Observer</observer>
+                </rewrite>
+            </catalogrule>
+        </models>
+    </global>
+</config>

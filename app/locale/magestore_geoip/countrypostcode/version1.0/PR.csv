@@ -1,0 +1,367 @@
+locId,country,region,city,postcode
+300358,PR,,,
+300359,PR,0,Carolina,985
+300360,PR,0,San Juan,907
+300361,PR,0,Guaynabo,965
+300362,PR,0,Dorado,646
+300363,PR,0,Catano,962
+300364,PR,0,San Juan,902
+300365,PR,0,Carolina,983
+300366,PR,0,Gurabo,778
+300367,PR,0,Guayama,785
+300368,PR,0,Caguas,725
+300369,PR,0,San Juan,918
+300370,PR,0,Carolina,979
+300371,PR,0,San Juan,940
+300372,PR,0,San Juan,927
+300373,PR,0,Vega Baja,693
+300374,PR,0,Las Piedras,771
+300375,PR,0,Bayamon,959
+300376,PR,0,Mercedita,715
+300377,PR,0,Guaynabo,968
+300378,PR,0,Guaynabo,969
+300379,PR,0,Toa Alta,953
+300380,PR,0,Carolina,987
+300381,PR,0,San Juan,936
+300382,PR,0,Naguabo,718
+300383,PR,0,San Juan,917
+300384,PR,0,San Juan,909
+300385,PR,0,San Juan,910
+300386,PR,0,Ponce,716
+300387,PR,0,San Juan,926
+300388,PR,0,Bayamon,960
+300389,PR,0,San Lorenzo,754
+300390,PR,0,Guaynabo,
+300391,PR,0,Fort Buchanan,
+300392,PR,0,Fort Buchanan,934
+300393,PR,0,Caguas,726
+300394,PR,0,San Juan,919
+300395,PR,0,Cidra,739
+300396,PR,0,Ceiba,735
+300397,PR,0,Hatillo,659
+300398,PR,0,San Juan,928
+300399,PR,0,San Juan,901
+300400,PR,0,San Juan,922
+300401,PR,0,San Juan,923
+300402,PR,0,San Juan,920
+300403,PR,0,Fajardo,738
+300404,PR,0,San Juan,908
+300405,PR,0,Corozal,783
+300406,PR,0,Bayamon,957
+300407,PR,0,San Juan,929
+300408,PR,0,Arecibo,612
+300409,PR,0,Mayaguez,680
+300410,PR,0,Cayey,737
+300411,PR,0,Toa Baja,949
+300412,PR,0,Bayamon,958
+300413,PR,0,San Juan,921
+300414,PR,0,Mayaguez,682
+300415,PR,0,Rio Grande,745
+300416,PR,0,Guayama,784
+300417,PR,0,Catano,963
+300418,PR,0,San Juan,906
+300419,PR,0,San Juan,925
+300420,PR,0,Guaynabo,971
+300421,PR,0,Adjuntas,601
+300422,PR,0,Barranquitas,794
+300423,PR,0,Carolina,982
+300424,PR,0,Orocovis,720
+300425,PR,0,San Juan,924
+300426,PR,0,Ponce,731
+300427,PR,0,Florida,
+300428,PR,0,Angeles,
+300429,PR,0,Carolina,
+300430,PR,0,Moca,676
+300431,PR,0,San Juan,
+300432,PR,0,Canovanas,
+300433,PR,0,Caguas,
+300434,PR,0,Vieques,
+300435,PR,0,Toa Alta,
+300436,PR,0,Trujillo Alto,
+300437,PR,0,Aguas Buenas,
+300438,PR,0,Bayamon,
+300439,PR,0,Juncos,
+300440,PR,0,Vega Baja,
+300441,PR,0,Isabela,
+300442,PR,0,Manati,
+300443,PR,0,Lares,
+300444,PR,0,Arecibo,
+300445,PR,0,Fajardo,
+300446,PR,0,Humacao,
+300447,PR,0,Palmer,
+300448,PR,0,Adjuntas,
+300449,PR,0,Cayey,
+300450,PR,0,Rio Grande,
+300451,PR,0,San Sebastian,685
+300452,PR,0,Utuado,641
+300453,PR,0,Utuado,
+300454,PR,0,Vega Alta,692
+300455,PR,0,Corozal,
+300456,PR,0,Comerio,
+300457,PR,0,Lares,669
+300458,PR,0,Vega Alta,
+300459,PR,0,Gurabo,
+300460,PR,0,Ceiba,
+300461,PR,0,Santa Isabel,
+300462,PR,0,Naranjito,
+300463,PR,0,Las Piedras,
+300464,PR,0,Humacao,791
+300465,PR,0,Hormigueros,
+300466,PR,0,Toa Baja,
+300467,PR,0,San Sebastian,
+300468,PR,0,Morovis,
+300469,PR,0,Ciales,
+300470,PR,0,Orocovis,
+300471,PR,0,Juana Diaz,795
+300472,PR,0,Sabana Grande,
+300473,PR,0,Aguirre,
+300474,PR,0,Arroyo,
+300475,PR,0,Yabucoa,767
+300476,PR,0,Aibonito,
+300477,PR,0,Ponce,
+300478,PR,0,Jayuya,
+300479,PR,0,Castaner,
+300480,PR,0,Sabana Seca,
+300481,PR,0,Saint Just,
+300482,PR,0,Mayaguez,681
+300483,PR,0,Rincon,
+300484,PR,0,Moca,
+300485,PR,0,Aguadilla,
+300486,PR,0,Mayaguez,
+300487,PR,0,Cabo Rojo,
+300488,PR,0,San German,
+300489,PR,0,Guayanilla,
+300490,PR,0,Coamo,
+300491,PR,0,Salinas,
+300492,PR,0,Guayama,
+300493,PR,0,Yauco,
+300494,PR,0,Cabo Rojo,623
+300495,PR,0,Juana Diaz,
+300496,PR,0,Anasco,
+300497,PR,0,Bayamon,956
+300498,PR,0,Barranquitas,
+300499,PR,0,Arroyo,714
+300500,PR,0,Bayamon,961
+300501,PR,0,Camuy,
+300502,PR,0,Trujillo Alto,976
+300503,PR,0,Sabana Grande,637
+300504,PR,0,San German,683
+300505,PR,0,Lajas,
+300506,PR,0,Ponce,732
+300507,PR,0,Penuelas,
+300508,PR,0,Coto Laurel,
+300509,PR,0,Cidra,
+300510,PR,0,Ponce,728
+300511,PR,0,San Juan,913
+300512,PR,0,San Juan,914
+300513,PR,0,Carolina,988
+300514,PR,0,Naguabo,
+300515,PR,0,Garrochales,
+300516,PR,0,Sabana Hoyos,
+300517,PR,0,Luquillo,
+300518,PR,0,Villalba,
+300519,PR,0,Luquillo,773
+300520,PR,0,Bajadero,
+300521,PR,0,Barceloneta,
+300522,PR,0,Morovis,687
+300523,PR,0,Aguada,602
+300524,PR,0,Las Marias,
+300525,PR,0,Aguada,
+300526,PR,0,Dorado,
+300527,PR,0,Hatillo,
+300528,PR,0,San Lorenzo,
+300529,PR,0,La Plata,
+300530,PR,0,Juncos,777
+300531,PR,0,San Antonio,
+300532,PR,0,Yauco,698
+300533,PR,0,Catano,
+300534,PR,0,Puerto Real,
+300535,PR,0,Rio Blanco,
+300536,PR,0,Rosario,
+300537,PR,0,Salinas,751
+300538,PR,0,Maricao,
+300539,PR,0,Quebradillas,
+300540,PR,0,Guanica,
+300541,PR,0,Anasco,610
+300542,PR,0,Punta Santiago,
+300543,PR,0,Trujillo Alto,977
+300544,PR,0,Barceloneta,617
+300545,PR,0,Yabucoa,
+300546,PR,0,Loiza,
+300547,PR,0,Aguas Buenas,703
+300548,PR,0,Guaynabo,970
+300549,PR,0,Culebra,
+300550,PR,0,Manati,674
+300551,PR,0,Coamo,769
+300552,PR,0,Carolina,986
+300553,PR,0,Canovanas,729
+300554,PR,0,Caguas,727
+300555,PR,0,Cayey,736
+300556,PR,0,Comerio,782
+300557,PR,0,Loiza,772
+300558,PR,0,Arecibo,614
+300559,PR,0,Naranjito,719
+300560,PR,0,Garrochales,652
+300561,PR,0,Ponce,730
+300562,PR,0,San Juan,939
+300563,PR,0,Carolina,984
+300564,PR,0,San Antonio,690
+300565,PR,0,San Juan,938
+300566,PR,0,Guaynabo,966
+300567,PR,0,San Juan,930
+300568,PR,0,San Juan,931
+300569,PR,0,Camuy,627
+300570,PR,0,San Juan,937
+300571,PR,0,Arecibo,613
+300572,PR,0,Guayanilla,656
+300573,PR,0,Puerto Real,740
+300574,PR,0,Humacao,792
+300575,PR,0,San Juan,935
+300576,PR,0,San Juan,955
+300577,PR,0,San Juan,915
+300578,PR,0,Ponce,733
+300579,PR,0,Saint Just,978
+300580,PR,0,Toa Baja,950
+300581,PR,0,Carolina,981
+300582,PR,0,San Juan,911
+300583,PR,0,Aguadilla,603
+300584,PR,0,Mercedita,
+300585,PR,0,Aibonito,705
+300586,PR,0,Penuelas,624
+300587,PR,0,San Juan,912
+300588,PR,0,Isabela,662
+300589,PR,0,Aguadilla,605
+300590,PR,0,Santa Isabel,757
+300591,PR,0,Ponce,717
+300592,PR,0,Rincon,677
+300593,PR,0,Villalba,766
+300594,PR,0,Lajas,667
+300595,PR,0,Boqueron,
+300596,PR,0,Coto Laurel,780
+300597,PR,0,Ciales,638
+300598,PR,0,Hormigueros,660
+300599,PR,0,Vega Baja,694
+300600,PR,0,Vieques,765
+300601,PR,0,Bajadero,616
+300602,PR,0,Patillas,723
+300603,PR,0,Boqueron,622
+300604,PR,0,San Juan,975
+300605,PR,0,Sabana Seca,952
+300606,PR,0,Punta Santiago,741
+300607,PR,0,Toa Alta,954
+300608,PR,0,Patillas,
+300609,PR,0,Guanica,653
+300610,PR,0,Rio Blanco,744
+300611,PR,0,Florida,650
+300612,PR,0,Angeles,611
+300613,PR,0,Maunabo,
+300614,PR,0,Jayuya,664
+300615,PR,0,Toa Baja,951
+300616,PR,0,Aguadilla,604
+300617,PR,0,Maunabo,707
+300618,PR,0,Culebra,775
+300619,PR,0,San Juan,916
+300620,PR,0,Quebradillas,678
+300621,PR,0,Ensenada,
+300622,PR,0,Ponce,734
+300623,PR,0,Sabana Hoyos,688
+300624,PR,0,Maricao,606
+300625,PR,0,Carolina,
+300626,PR,0,San Juan,
+300627,PR,0,Guaynabo,
+300628,PR,0,Dorado,
+300629,PR,0,Catano,
+300630,PR,0,Gurabo,
+300631,PR,0,Guayama,
+300632,PR,0,Vega Baja,
+300633,PR,0,Las Piedras,
+300634,PR,0,Bayamon,
+300635,PR,0,Mercedita,
+300636,PR,0,San Lorenzo,
+300637,PR,0,Caguas,
+300638,PR,0,Cidra,
+300639,PR,0,Ceiba,
+300640,PR,0,Hatillo,
+300641,PR,0,Fajardo,
+300642,PR,0,Corozal,
+300643,PR,0,Arecibo,
+300644,PR,0,Mayaguez,
+300645,PR,0,Cayey,
+300646,PR,0,Toa Baja,
+300647,PR,0,Rio Grande,
+300648,PR,0,Barranquitas,
+300649,PR,0,Ponce,
+300650,PR,0,Florida,
+300651,PR,0,Angeles,
+300652,PR,0,Luquillo,
+300653,PR,0,Naguabo,
+300654,PR,0,Jayuya,
+300655,PR,0,Vega Alta,
+300656,PR,0,Vieques,
+300657,PR,0,Canovanas,
+300658,PR,0,Juncos,
+300659,PR,0,Aguas Buenas,
+300660,PR,0,Yabucoa,
+300661,PR,0,Camuy,
+300662,PR,0,Barceloneta,
+300663,PR,0,Punta Santiago,
+300664,PR,0,Humacao,
+300665,PR,0,Utuado,
+300666,PR,0,San Sebastian,
+300667,PR,0,Bajadero,
+300668,PR,0,Puerto Real,
+300669,PR,0,Trujillo Alto,
+300670,PR,0,Manati,
+300671,PR,0,Sabana Hoyos,
+300672,PR,0,Morovis,
+300673,PR,0,Palmer,
+300674,PR,0,Loiza,
+300675,PR,0,Lares,
+300676,PR,0,San German,
+300677,PR,0,Juana Diaz,
+300678,PR,0,Penuelas,
+300679,PR,0,Guayanilla,
+300680,PR,0,Salinas,
+300681,PR,0,Cabo Rojo,
+300682,PR,0,Aguada,
+300683,PR,0,Isabela,
+300684,PR,0,Aguadilla,
+300685,PR,0,Anasco,
+300686,PR,0,Boqueron,
+300687,PR,0,Sabana Grande,
+300688,PR,0,Hormigueros,
+300689,PR,0,Moca,
+300690,PR,0,Rincon,
+300691,PR,0,Lajas,
+300692,PR,0,Santa Isabel,
+300693,PR,0,Villalba,
+300694,PR,0,Yauco,
+300695,PR,0,Aguirre,
+300696,PR,0,Coto Laurel,
+300697,PR,0,Ensenada,
+300698,PR,0,Quebradillas,
+300699,PR,0,Comerio,
+300700,PR,0,La Plata,
+300701,PR,0,Ciales,
+300702,PR,0,Coamo,
+300703,PR,0,Aibonito,
+300704,PR,0,Garrochales,
+300705,PR,0,Orocovis,
+300706,PR,0,Rio Blanco,
+300707,PR,0,Toa Alta,
+300708,PR,0,San Antonio,
+300709,PR,0,Naranjito,
+300710,PR,0,Culebra,
+300711,PR,0,Maunabo,
+300712,PR,0,Las Marias,
+300713,PR,0,Patillas,
+300714,PR,0,Sabana Seca,
+300715,PR,0,Adjuntas,
+300716,PR,0,Arroyo,
+300717,PR,0,Caguas,727
+300718,PR,0,Saint Just,
+300719,PR,0,Guanica,
+300720,PR,0,Maricao,
+300721,PR,0,Rosario,
+300722,PR,0,San Juan,902
+300723,PR,0,Roosevelt Roads,

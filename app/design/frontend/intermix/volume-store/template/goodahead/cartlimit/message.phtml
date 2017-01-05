@@ -1,0 +1,6 @@
+
+<?php if($this->canShow()):?>
+<div class="note-msg">
+<?php echo $this->__('You need at least %s items on your pallet to checkout from the Volume Ordering store', $this->getNeedCount())?>
+</div>
+<?php endif;?>

@@ -1,0 +1,117 @@
+<?php
+    /** @var  Goodahead_PdfReport_Block_Adminhtml_Report_Sales_Node_Creditmemo $this */
+    /* @var $this Goodahead_PdfReport_Block_Adminhtml_Report_Sales_Node_Creditmemo */
+    $_currency = $this->getOrder()->getOrderCurrency();
+    $_order = $this->getOrder();
+    $_customer = Mage::getModel('customer/customer')->load($_order->getCustomerId());
+?>
+<?php $_items = $this->getCreditmemoItems(); ?>
+<?php if (is_array($_items) && count($_items)): ?>
+<p style="height: 0px; max-height: 0px; overflow: hidden; border: none; padding: 0px; margin: 0px; <?php if ($this->getAddNewPage()): ?> page-break-before: always;<?php endif; ?>"></p>
+<table class="table-head" style="border: 0;">
+    <thead>
+        <tr>
+            <td style="width: 50%;">
+            <img src="<?php echo $this->getLogoImage(); ?>" align="left" /><br/>
+            <?php echo $this->getStoreAddress(); ?>
+            </td>
+            <td style="width: 50%;">
+                <table class="internal">
+                    <?php if( $_customer && $_customer->getData('intermix_id') ):?>
+                    <tr>
+                        <td align="right" style="padding-right: 4px;"><nobr><?php echo $this->__('Customer Accouting ID #'); ?></nobr></td>
+                        <td width="1"><nobr><?php echo $_customer->getData('intermix_id'); ?></nobr></td>
+                    </tr>
+                    <?php endif;?>
+                    <tr>
+                        <td align="right" style="padding-right: 4px;"><nobr><?php echo $this->__('Order #'); ?></nobr></td>
+                        <td width="1"><nobr><?php echo $this->getOrder()->getRealOrderId(); ?></nobr></td>
+                    </tr>
+                    <tr>
+                        <td align="right" style="padding-right: 4px;"><nobr><?php echo $this->__('Creditmemo #'); ?></nobr></td>
+                        <td width="1"><nobr><?php echo $this->getItem()->getIncrementId(); ?></nobr></td>
+                    </tr>
+                    <tr>
+                        <td align="right" style="padding-right: 4px;"><nobr><?php echo $this->__('Order Date:'); ?></nobr></td>
+                        <td width="1"><nobr><?php echo Mage::helper('core')->formatDate($this->getOrder()->getCreatedAtStoreDate(), 'medium', false); ?></nobr></td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td colspan="2">
+                <table class="info-block">
+                    <thead class="title">
+                        <tr>
+                            <th align="left" style="width: 50%;" class="right-column"><?php echo $this->__('Billing Address'); ?></th>
+                            <th align="left" style="width: 50%;" class="left-column"><?php echo $this->__('Shipping Address'); ?></th>
+                        </tr>
+                    </thead>
+                    <tbody class="border">
+                        <tr>
+                            <td class="right-column"><?php echo $this->getBillingAddress(); ?></td>
+                            <td class="left-column"><?php echo $this->getShippingAddress(); ?></td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <table class="info-block">
+                    <thead class="title">
+                        <tr>
+                            <th align="left" style="width: 50%;" class="left-column"><?php echo $this->__('Payment Method'); ?></th>
+                            <th align="left" style="width: 50%;" class="right-column"><?php echo $this->__('Shipping Method'); ?></th>
+                        </tr>
+                    </thead>
+                    <tbody class="border">
+                        <tr>
+                            <td class="left-column"><?php print_r ($this->getPaymentMethod()); ?></td>
+                            <td class="right-column"><?php print_r ($this->getShippingMethod()); ?></td>
+                        </tr>
+                    </tbody>
+                </table>
+                <table class="info-block">
+                    <thead class="title">
+                        <tr>
+                            <th align="left" class="left-column"><?php echo $this->__('Product Name'); ?></th>
+                            <th align="left" width="1%"><?php echo $this->__('SKU'); ?></th>
+                            <th width="1%"><nobr><?php echo $this->__('Total (Ex)'); ?></nobr></th>
+                            <th width="1%"><nobr><?php echo $this->__('Discount'); ?></nobr></th>
+                            <th width="1%"><nobr><?php echo $this->__('Qty'); ?></nobr></th>
+                            <th width="1%"><nobr><?php echo $this->__('Tax'); ?></nobr></th>
+                            <th class="right-column" width="1%"><nobr><?php echo $this->__('Total (Inc)'); ?></nobr></th>
+                        </tr>
+                    </thead>
+
+                    <tbody class="items">
+                        <?php foreach ($_items as $_item): ?>
+                        <tr style="page-break-inside: ">
+                            <td class="left-column" style="font-size: 8pt;" valign="top">
+                                <span style="font-size: 13px;"><?php echo $_item->getName(); ?></span><br/>
+                                <?php if ($_item->getDescription()): ?>
+                                    <span style="padding: 0px; margin: 0px; font-size: 8pt; page-break-inside: avoid; "><?php echo $_item->getDescription(); ?></span>
+                                <?php endif; ?>
+                            </td>
+                            <td><?php echo $_item->getSku(); ?></td>
+                            <td align="right"><?php echo $_order->formatPriceTxt($_item->getRowTotal()); ?></td>
+                            <td align="right"><?php echo $_order->formatPriceTxt($_item->getDiscountAmount()); ?></td>
+                            <td align="right"><?php echo $_item->getQty()*1; ?></td>
+                            <td align="right"><?php echo $_order->formatPriceTxt($_item->getTaxAmount()); ?></td>
+                            <td align="right" class="right-column"><?php echo $_order->formatPriceTxt($_item->getRowTotal() + $_item->getTaxAmount() - $_item->getDiscountAmount()); ?></td>
+                        </tr>
+                        <?php endforeach; ?>
+                        <?php $_first = true; ?>
+                        <?php foreach ($this->getTotals() as $_total): ?>
+                            <tr class="totals<?php if ($_first): $_first = false; ?> space<?php endif; ?>">
+                                <td align="right" colspan="6" class="left-column"><?php echo $this->__($_total['label']); ?></td>
+                                <td align="right" class="right-column"><?php echo $_total['amount']; ?></td>
+                            </tr>
+                        <?php endforeach; ?>
+                    </tbody>
+                </table>
+            </td>
+        </tr>
+    </tbody>
+</table>
+<?php endif; ?>

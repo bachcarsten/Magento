@@ -1,0 +1,19 @@
+<div id="block_notice_wizard_welcome_content" class="block_notices_module" title="<?php echo Mage::helper('M2ePro')->__(''); ?>" subtitle="" collapseable="no" hideblock="no" always_show="yes">
+    <?php
+    $tempString = Mage::helper('M2ePro')->__(
+    'This part of extension facilitates quick and simple listings creation as well as management of product listings.
+        Also, it is possible to import and map existing items (created directly on Amazon or with the help of 3rd party tools) to Magento products. <br/>
+        The M2E Pro fully supports multiple Amazon accounts and multiple Magento stores. <br/><br/>
+        Among the features: <br/>
+        <ul class="list">
+        <li>Ability to import an Amazon product into Magento catalogue for Amazon order, if such product is not found in exiting catalogue;</li>
+        <li>Ability to import of Amazon orders and many other tasks which would significantly reduce a time required for listings maintenance;</li>
+        <li>Ability to set tax settings for Magento order based on Amazon order (Amazon Order Tax Settings);</li>
+        <li>Automated and manual mapping of 3rd party (existing) products to Magento products catalogue;</li>
+        <li>Ability to move 3rd party (existing, mapped to Magento) products to existing M2E Pro listings;</li>
+        <li>Automated synchronization (stock levels, pricing);</li>
+        <li>Automatic and Manual "ASIN Lookup" features.</li>
+        </ul>
+    ');
+    echo str_replace('%ver%',Mage::helper('M2ePro/Module')->getVersion(),$tempString); ?>
+</div>

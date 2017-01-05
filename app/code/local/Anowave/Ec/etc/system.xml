@@ -1,0 +1,110 @@
+<?xml version="1.0"?>
+<config>
+	<tabs>
+        <anowave translate="label">
+            <label>Anowave Extensions</label>
+            <sort_order>150</sort_order>
+        </anowave>
+    </tabs> 
+    <sections>
+        <ec translate="label" module="ec">
+            <label>Google Tag Manager</label>
+            <tab>anowave</tab>
+            <frontend_type>text</frontend_type>
+            <sort_order>980</sort_order>
+            <show_in_default>1</show_in_default>
+            <show_in_website>1</show_in_website>
+            <show_in_store>0</show_in_store>
+            <groups>
+                <config>
+                    <label>Installation code</label>
+                    <sort_order>10</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>0</show_in_store>
+                    <expanded>1</expanded>
+                    <fields>
+						<code translate="label comment">
+							<label>Google Tag Manager Code</label>
+							<comment>
+								<![CDATA[Insert Google Tag Manager snippet. It will be inserted before the body closing tag e.g &lt;/body&gt;]]>
+							</comment>
+							<frontend_type>textarea</frontend_type>
+							<sort_order>1</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</code>
+                    </fields>
+                </config>
+                <adwords>
+                    <label>AdWords Conversion Tracking</label>
+                    <sort_order>12</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>0</show_in_store>
+                    <expanded>1</expanded>
+                    <fields>
+						<conversion_id translate="label comment">
+							<label>Conversion ID</label>
+							<comment>
+								<![CDATA[AdWords Conversion ID]]>
+							</comment>
+							<frontend_type>text</frontend_type>
+							<sort_order>1</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</conversion_id>
+						<conversion_label translate="label comment">
+							<label>Conversion Label</label>
+							<comment>
+								<![CDATA[AdWords Conversion Label]]>
+							</comment>
+							<frontend_type>text</frontend_type>
+							<sort_order>2</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</conversion_label>
+						<conversion_format translate="label comment">
+							<label>Conversion Format</label>
+							<comment>
+						        <model>ec/system_config_comment</model>
+						    </comment>
+						    <source_model>ec/system_config_format</source_model>
+							<frontend_type>select</frontend_type>
+							<sort_order>3</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</conversion_format>
+						<conversion_currency translate="label comment">
+							<label>Conversion Currency</label>
+							<comment>
+						       	<![CDATA[AdWords Conversion Currency]]>
+						    </comment>
+						    <source_model>ec/system_config_currency</source_model>
+							<frontend_type>select</frontend_type>
+							<sort_order>4</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</conversion_currency>
+						<conversion_color translate="label comment">
+							<label>Conversion Color</label>
+							<comment>
+								<![CDATA[Hex value e.g 666666. Do not include # prefix]]>
+							</comment>
+							<frontend_type>text</frontend_type>
+							<sort_order>5</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</conversion_color>
+                    </fields>
+                </adwords>
+            </groups>
+        </ec>
+    </sections>
+</config>

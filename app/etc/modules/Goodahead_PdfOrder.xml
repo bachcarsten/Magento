@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config>
+    <modules>
+        <Goodahead_PdfOrder>
+            <active>true</active>
+            <codePool>local</codePool>
+            <depends>
+                <Goodahead_PdfReport />
+            </depends>
+        </Goodahead_PdfOrder>
+    </modules>
+</config>

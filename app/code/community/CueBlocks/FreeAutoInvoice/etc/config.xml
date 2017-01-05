@@ -1,0 +1,41 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <CueBlocks_FreeAutoInvoice>
+            <version>0.0.2</version>
+        </CueBlocks_FreeAutoInvoice>
+    </modules>
+    <global>
+        <models>
+            <freeAutoInvoice>
+                <class>CueBlocks_FreeAutoInvoice_Model</class>
+            </freeAutoInvoice>
+        </models>
+        <helpers>
+            <freeAutoInvoice>
+                <class>CueBlocks_FreeAutoInvoice_Helper</class>
+            </freeAutoInvoice>
+        </helpers>
+        <events>
+            <sales_order_place_after>
+                <observers>
+                    <auto_invoice_order>
+                        <type>singleton</type>
+                        <class>freeAutoInvoice/observer</class>
+                        <method>autoInvoice</method>
+                    </auto_invoice_order>
+                </observers>
+            </sales_order_place_after>
+        </events>
+    </global>
+    <default>
+        <sales>
+            <auto_invoice>
+                <enabled>1</enabled>
+                <enabled_email>1</enabled_email>
+                <email_message></email_message>
+                <order_note>Automatically Invoiced !</order_note>
+            </auto_invoice>
+        </sales>
+    </default>
+</config>

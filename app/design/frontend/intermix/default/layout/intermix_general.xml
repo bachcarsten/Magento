@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<layout version="0.1.0">
+	<default>
+        <reference name="top.links">
+            <action method="addLink" translate="label title" module="customer"><label>My Order Form</label><url helper="goodahead_orderedproducts/getHistoryUrl"/><title>My Order Form</title><prepare/><urlParams/><position>15</position></action>
+        </reference>
+	</default>
+
+    <cms_index_index>
+        <reference name="left">
+            <block type="catalog/layer_view" name="catalog.leftnav" before="-" template="catalog/layer/view.phtml"/>
+        </reference>
+    </cms_index_index>
+    
+    <catalog_product_view>
+        <reference name="left">
+            <block type="catalog/layer_view" name="catalog.leftnav" before="-" template="catalog/layer/view.phtml"/>
+        </reference>
+    </catalog_product_view>
+    
+    <contacts_index_index>
+        <reference name="left">
+            <block type="catalog/layer_view" name="catalog.leftnav" before="-" template="catalog/layer/view.phtml"/>
+        </reference>
+    </contacts_index_index>
+    
+    <catalogsearch_advanced_index>
+        <reference name="left">
+            <block type="catalog/layer_view" name="catalog.leftnav" before="-" template="catalog/layer/view.phtml"/>
+        </reference>
+    </catalogsearch_advanced_index>
+</layout>

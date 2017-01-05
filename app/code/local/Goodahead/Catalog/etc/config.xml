@@ -1,0 +1,31 @@
+<config>
+    <modules>
+        <Goodahead_Catalog>
+            <version>0.1.0</version>
+        </Goodahead_Catalog>
+    </modules>
+    <global>
+        <helpers>
+            <goodahead_catalog>
+                <class>Goodahead_Catalog_Helper</class>
+            </goodahead_catalog>
+        </helpers>
+        <resources>
+            <goodahead_catalog_setup>
+                <setup>
+                    <module>Goodahead_Catalog</module>
+                    <class>Mage_Eav_Model_Entity_Setup</class>
+                </setup>
+                <connection>
+                    <use>core_setup</use>
+                </connection>
+            </goodahead_catalog_setup>
+            <goodahead_catalog_write>
+                <use>core_write</use>
+            </goodahead_catalog_write>
+            <goodahead_catalog_read>
+                <use>core_read</use>
+            </goodahead_catalog_read>
+        </resources>
+    </global>
+</config>

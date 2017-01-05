@@ -1,0 +1,33 @@
+0.1.5 - 1.1.0 (2014-07-30)
+- Added cron job based price importing with logging feature
+- Added shell/command line based price importing with logging feature
+- Added price rounding feature (normal rounding, rounding to nearest)
+- Added relative(fixed & percentage) pricing for special, tier & group prices.
+For example:
+    10      = Fixed Value
+    +10     = Increment current value by 10
+    -10     = Decrement current value by 10
+    10%     = 10% of base price
+    +10%    = Increment current price by 10%
+    -10%    = Decrement current price by 10%
+    (this applies only for special_price, tier_price & group_price)
+- Changed store view based pricing import to website based
+- Added store wise price export
+- Added option for deleting special_price, special_from_date, special_to_date by marking the value with 'x' or 'X'
+- Added button for checking csv file format
+- Refactored the code
+- Added Change log file: Changelog.txt
+- Added Uninstall file: Uninstall.txt
+
+
+0.1.1 - 0.1.5 (2013-05-03)
+- Added export facility for all types of prices in CSV format.
+- Added option for deleting tier price or group price by marking the value with 'x' or 'X'
+- Refactored the code.
+- Fixed bug for importing for 'NOT LOGGED IN' customer group.
+
+0.1.0 - 0.1.1 (2012-07-08)
+- Added 'cost' field.
+- Added 'website_id' field for website wise tier / group price importing.
+- Added two new import types for tier / group pricing imports: Replace (Group) & Replace (All).
+- Fixed bug for importing for non existence customer group.

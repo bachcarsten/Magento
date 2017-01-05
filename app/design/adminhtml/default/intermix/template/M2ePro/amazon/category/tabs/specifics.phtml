@@ -1,0 +1,30 @@
+<div id="block_notice_category_add" class="block_notices_module" title="<?php echo Mage::helper('M2ePro')->__('Specifics tab TODO TEXT'); ?>">
+    <?php echo Mage::helper('M2ePro')->__('TODO TEXT'); ?>
+</div>
+
+<script type="text/javascript">
+
+    Event.observe(window, 'load', function() {
+        $('amazonCategoryEditTabs_specifics').observe('click', AmazonCategoryHandlerObj.checkAttributeSetSelection);
+        $('amazonCategoryEditTabs_specifics').observe('click', AmazonCategoryHandlerObj.checkSpecificsReady.bind(AmazonCategoryHandlerObj));
+    });
+
+</script>
+
+<div class="entry-edit" id="magento_block_specific_edit_general" style="display: none;">
+
+    <div class="entry-edit-head">
+        <h4 class="icon-head head-edit-form fieldset-legend"><?php echo Mage::helper('M2ePro')->__('Specifics Configuration'); ?></h4>
+    </div>
+
+    <div class="fieldset">
+        <div class="hor-scroll">
+
+            <table class="form-list" cellspacing="0" cellpadding="0" id="specifics_container" style="width: 100%">
+
+            </table>
+
+        </div>
+    </div>
+
+</div>

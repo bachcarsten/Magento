@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config>
+    <modules>
+        <Goodahead_ProductDiscount>
+            <version>0.1.0</version>
+        </Goodahead_ProductDiscount>
+    </modules>
+    <global>
+        <models>
+            <goodahead_productdiscount>
+                <class>Goodahead_ProductDiscount_Model</class>
+            </goodahead_productdiscount>
+        </models>
+        <helpers>
+            <goodahead_productdiscount>
+                <class>Goodahead_ProductDiscount_Helper</class>
+            </goodahead_productdiscount>
+        </helpers>
+        <events>
+            <catalog_product_get_final_price>
+                <observers>
+                    <goodahead_productdiscount_catalog_product_get_final_price>
+                        <class>goodahead_productdiscount/observer</class>
+                        <method>getProductFinalPrice</method>
+                    </goodahead_productdiscount_catalog_product_get_final_price>
+                </observers>
+            </catalog_product_get_final_price>
+        </events>
+    </global>
+    <default>
+        <productdiscount>
+            <options>
+                <use_tier_price_level>0</use_tier_price_level>
+            </options>
+        </productdiscount>
+    </default>
+</config>

@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <Aitoc_Aitquantitymanager>
+            <active>false</active>
+            <codePool>local</codePool>
+            <self_name>Multi-Location Inventory</self_name>
+            <priority>600</priority>
+			<depends><Mage_CatalogInventory/></depends>	
+        </Aitoc_Aitquantitymanager>
+    </modules>
+</config>
+<!--
+/**
+ * Product:     Multi-Location Inventory
+ * Package:     Aitoc_Aitquantitymanager_2.1.3_2.0.1_314694
+ * Purchase ID: nILwa7zsqWm4gpHcLdhf7zqePRi3Axk569Gj6pIMvu
+ * Generated:   2012-10-24 15:10:42
+ * File path:   app/etc/modules/Aitoc_Aitquantitymanager.xml
+ * Copyright:   (c) 2012 AITOC, Inc.
+ */
+-->

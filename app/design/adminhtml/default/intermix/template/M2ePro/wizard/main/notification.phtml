@@ -1,0 +1,35 @@
+<script type="text/javascript">
+
+</script>
+
+<?php
+
+$version = Mage::helper('M2ePro/Module')->getVersion();
+$skipWizardLink = $this->getUrl("*/adminhtml_wizard_main/skip");
+$startWizardLink = $this->getUrl("*/adminhtml_wizard_main");
+
+?>
+
+<div class="wizard-note">
+
+    <a class="wizard-close" href="javascript:void(0);" onclick="WizardHandlerObj.skip('<?php echo $skipWizardLink; ?>');" title="<?php echo Mage::helper('M2ePro')->__('Skip Wizard') ?>">&times;</a>
+
+    <div>
+        <?php
+
+        $notification = Mage::helper('M2ePro')->__(
+            'You have successfully installed M2E Pro v. %ver%.<br/>
+             Click <a href="%startWizard%">Start Configuration</a> Wizard to quickly set up main settings or <a href="javascript:;" onclick="confirm(CONFIRM) && setLocation(\'%skipWizard%\')">Skip</a> it if you intend to set it later. <br/>
+             <strong>Note:</strong> If you skip the Wizard, it never starts again. You will be required to set all settings manually.'
+        );
+
+        echo str_replace(
+            array('%ver%','%startWizard%','%skipWizard%'),
+            array($version,$startWizardLink,$skipWizardLink),
+            $notification
+        );
+
+        ?>
+    </div>
+
+</div>

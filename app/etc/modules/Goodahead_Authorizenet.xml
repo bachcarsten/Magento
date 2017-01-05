@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <Goodahead_Authorizenet>
+            <active>1</active>
+            <codePool>local</codePool>
+            <depends>
+                <Mage_Payment/>
+            </depends>
+        </Goodahead_Authorizenet>
+    </modules>
+</config>

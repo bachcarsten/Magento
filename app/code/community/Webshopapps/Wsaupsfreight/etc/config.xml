@@ -1,0 +1,119 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Magento Webshopapps Shipping Module
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Open Software License (OSL 3.0)
+ * that is bundled with this package in the file LICENSE.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://opensource.org/licenses/osl-3.0.php
+ * If you did not receive a copy of the license and are unable to
+ * obtain it through the world-wide-web, please send an email
+ * to license@magentocommerce.com so we can send you a copy immediately.
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade Magento to newer
+ * versions in the future. If you wish to customize Magento for your
+ * needs please refer to http://www.magentocommerce.com for more information.
+ *
+ * @category   Webshopapps
+ * @package    Webshopapps_Wsaupsfreight
+ * @copyright   Copyright (c) 2013 Zowta Ltd (http://www.WebShopApps.com)
+ *              Copyright, 2013, Zowta, LLC - US license
+ * @license    http://www.webshopapps.com/license/license.txt - Commercial license
+ * @author     Karen Baker <sales@webshopapps.com>
+*/
+-->
+<config>
+   <modules>
+        <Webshopapps_Wsaupsfreight>
+          <version>0.0.2</version>
+           <depends>
+               <Mage_Shipping />
+           </depends>
+    	</Webshopapps_Wsaupsfreight>
+    </modules>
+ <global>
+    <models>
+      <wsaupsfreight>
+        <class>Webshopapps_Wsaupsfreight_Model</class>
+      </wsaupsfreight>
+	  <wsaupsfreight_shipping>
+			<class>Webshopapps_Wsaupsfreight_Model</class>
+		</wsaupsfreight_shipping>
+	</models>
+    <resources>
+      <wsaupsfreight_setup>
+        <setup>
+          <module>Webshopapps_Wsaupsfreight</module>
+        </setup>
+        <connection>
+          <use>core_setup</use>
+        </connection>
+      </wsaupsfreight_setup>
+    </resources>
+    <sales>
+	<shipping>
+	    <carriers>
+			<wsaupsfreight>
+				<class>Webshopapps_Wsaupsfreight_Model_Carrier_Wsaupsfreight</class>
+			</wsaupsfreight>
+	    </carriers>
+	</shipping>
+    </sales>
+           <helpers>
+         <wsaupsfreight>
+             <class>Webshopapps_Wsaupsfreight_Helper</class>
+         </wsaupsfreight>
+     </helpers> 
+  </global>
+   <frontend>    	
+        <translate>
+            <modules>
+                <Webshopapps_Wsaupsfreight>
+                    <files>
+                        <default>Webshopapps_Wsaupsfreight.csv</default>
+                    </files>
+                </Webshopapps_Wsaupsfreight>
+            </modules>
+        </translate>
+    </frontend>
+      <adminhtml>
+        <translate>
+            <modules>
+                <Webshopapps_Wsaupsfreight>
+                    <files>
+                        <default>Webshopapps_Wsaupsfreight.csv</default>
+                    </files>
+                </Webshopapps_Wsaupsfreight>
+            </modules>
+        </translate>
+    </adminhtml>
+    <default>
+        <carriers>
+            <wsaupsfreight>
+                <userid backend_model="adminhtml/system_config_backend_encrypted"/>
+                <password backend_model="adminhtml/system_config_backend_encrypted"/>
+                <access_license_number backend_model="adminhtml/system_config_backend_encrypted"/>
+                <active>0</active>
+                <allowed_methods>308</allowed_methods>
+                <serial backend_model="adminhtml/system_config_backend_encrypted" />
+                <sallowspecific>0</sallowspecific>
+                <model>wsaupsfreight_shipping/carrier_wsaupsfreight</model>
+                <name>LTL</name>
+                <title>UPS Freight</title>
+                <specificerrmsg>This shipping method is currently unavailable. If you would like to ship using this shipping method, please contact us.</specificerrmsg>
+                <allowed_methods>308</allowed_methods> 
+                <weight_apply>Order</weight_apply>
+                <debug>0</debug>
+                <gateway_url>TEST</gateway_url>
+                <container>PLT</container>
+                <mode_xml>0</mode_xml>
+                <apply_zero_fee>0</apply_zero_fee>
+            </wsaupsfreight>
+        </carriers>
+    </default>
+</config>

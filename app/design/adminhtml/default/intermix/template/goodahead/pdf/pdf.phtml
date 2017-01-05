@@ -1,0 +1,38 @@
+<?php
+?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+    <style type="text/css">
+
+        @page { margin: 1cm; }
+
+        * {font-family: Helvetica, Verdana, Tahoma; font-size:12px;}
+        .general {text-align:center; width:100%;}
+        .h1 {font-weight:bold; font-size:18px}
+        .h2 {font-weight:bold; font-size:16px}
+        .bank-account {padding-left:5px;}
+        .total {padding-left:5px;padding-bottom:0px; padding-top:0px;}
+        .dashed {border-top-width:2px; border-top-style: dashed; border-top-color: #000000; width:100%;}
+        .bordersolid {border-bottom-width:2px; border-bottom-style: solid; border-bottom-color: #000000;}
+        table thead.title {border: 1px solid #000; background-color: #DDD; font-size:13px; }
+        table th {padding: 4px 4px; }
+        table td {padding: 0px 4px; padding-top: 2px; }
+        .title-last th {margin-bottom: 10px; }
+        table tbody.items {_border: 4px solid #FFF;}
+        table th.left-column, td.left-column {padding-left: 15px; }
+        table th.right-column, td.right-column {padding-right: 15px; }
+        table {width: 100%; _margin: auto;}
+        table.internal td {padding: 0px;}
+        table tbody.border {border: 1px solid #000; border-top: none; padding-bottom: 2px;}
+        table.info-block {margin-top: 20px;}
+        table tbody tr.totals td {font-weight: bold;}
+        table tbody tr.space td {padding-top: 5px; border-top: 1px solid #000; page-break-before: avoid;}
+        table tbody tr.space {page-break-before: avoid;}
+    </style>
+</head>
+<body>
+<?php echo $this->getChildHtml('');?>
+</body>
+</html>

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config>
+    <modules>
+        <Goodahead_Adminhtml>
+            <version>1.4.1.1</version>
+        </Goodahead_Adminhtml>
+    </modules>
+    <stores>
+        <admin>
+            <design>
+                <package>
+                    <name>default</name>
+                </package>
+                <theme>
+                    <default>intermix</default>
+                </theme>
+            </design>
+        </admin>
+    </stores>
+</config>

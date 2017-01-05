@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config>
+    <tabs>
+        <goodahead translate="label" module="goodahead_privatesales">
+            <label>Intermix Settings</label>
+            <sort_order>250</sort_order>
+        </goodahead>
+    </tabs>
+    <sections>
+        <goodahead>
+            <label>Intermix Settings</label>
+            <tab>goodahead</tab>
+            <sort_order>100</sort_order>
+            <show_in_default>1</show_in_default>
+            <show_in_website>1</show_in_website>
+            <show_in_store>1</show_in_store>
+            <groups>
+                <privatesales>
+                    <label>Private Sales Options</label>
+                    <sort_order>10</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <fields>
+                        <enabled translate="label">
+                            <sort_order>10</sort_order>
+                            <label>Access Restriction Enabled</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <backend_model>goodahead_privatesales/system_config_backend_active</backend_model>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                        </enabled>
+                        <type translate="label">
+                            <sort_order>20</sort_order>
+                            <label>Restriction Type</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>goodahead_privatesales/system_config_source_types</source_model>
+                            <backend_model>goodahead_privatesales/system_config_backend_active</backend_model>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                        </type>
+                        <startup_page translate="label comment">
+                            <sort_order>30</sort_order>
+                            <label>Startup Page</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>goodahead_privatesales/system_config_source_startup</source_model>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                        </startup_page>
+                        <landing_page translate="label">
+                            <sort_order>40</sort_order>
+                            <label>CMS Page</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_cms_page</source_model>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                        </landing_page>
+                        <allowed_groups translate="label">
+                            <sort_order>50</sort_order>
+                            <label>Allowed Customer Groups</label>
+                            <frontend_type>multiselect</frontend_type>
+                            <source_model>goodahead_privatesales/system_config_source_customer_group</source_model>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                        </allowed_groups>
+                    </fields>
+                </privatesales>
+            </groups>
+        </goodahead>
+    </sections>
+</config>

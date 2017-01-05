@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <Intermix_Shipping>
+            <version>0.0.1</version>
+        </Intermix_Shipping>
+    </modules>
+    <global>
+        <blocks>
+            <intermix_shipping><class>Intermix_Shipping_Block</class></intermix_shipping>
+            <shipping>
+                <rewrite>
+                    <tracking_popup>Intermix_Shipping_Block_Tracking_Popup</tracking_popup>
+                </rewrite>
+            </shipping>
+        </blocks>
+    </global>
+</config>

@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<layout>
+    <customer_account>
+        <reference name="customer_account_navigation">
+            <action method="addLink" translate="label" module="goodahead_orderbysku">
+                <name>orderbysku</name>
+                <path>goodahead_orderbysku/account/index</path>
+                <label>Order by SKU</label>
+            </action>
+        </reference>
+    </customer_account>
+
+    <goodahead_orderbysku_account_index>
+        <update handle="customer_account"/>
+        <reference name="head">
+            <action method="addJs"><script>goodahead/orderbysku.js</script></action>
+            <action method="addCss"><stylesheet>css/goodahead/orderbysku.css</stylesheet></action>
+        </reference>
+        <reference name="content">
+            <block type="goodahead_orderbysku/account" name="order_by_sku" template="goodahead/orderbysku/account.phtml" />
+        </reference>
+    </goodahead_orderbysku_account_index>
+</layout>

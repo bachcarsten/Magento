@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<layout version="0.1.0">
+    <default>
+
+    </default>
+    <customer_account>
+        <reference name="customer_account_navigation">
+            <block type="goodahead_authorizenet/account_tab" name="goodahead_authorizenet_tab">
+                <action method="addTab" />
+            </block>
+        </reference>
+    </customer_account>
+    <goodahead_authorizenet_account_index>
+        <update handle="customer_account"/>
+        <reference name="content">
+            <block type="goodahead_authorizenet/account_card" name="goodahead.authorizenet.account.card" template="goodahead/authorizenet/account/card.phtml" />
+        </reference>
+    </goodahead_authorizenet_account_index>
+    <goodahead_authorizenet_account_new>
+        <update handle="customer_account"/>
+        <reference name="content">
+            <block type="goodahead_authorizenet/account_create" name="goodahead.authorizenet.account.create" template="goodahead/authorizenet/account/create.phtml" />
+        </reference>
+    </goodahead_authorizenet_account_new>
+</layout>

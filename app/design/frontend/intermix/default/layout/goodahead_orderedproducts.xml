@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<layout version="0.1.0">
+
+    <customer_account_index>
+        <reference name="customer_account_dashboard">
+            <block type="goodahead_orderedproducts/recent" name="goodahead_orderedproducts_dashboard" as="goodahead_orderedproducts" template="goodahead_orderedproducts/recent-account.phtml"/>
+        </reference>
+    </customer_account_index>
+    
+    <customer_history_index>
+        <reference name="head">
+            <action method="setTitle" translate="title"><title>My Order Form</title></action>
+        </reference>
+ 	    <reference name="left">
+            <block type="catalog/layer_view" name="catalog.leftnav" before="-" template="catalog/layer/view.phtml"/>
+            <remove name="catalog.compare.sidebar" />
+        </reference>
+        <reference name="content">
+            <block type="cms/block" name="cms-recent-title" before="-" >
+                  <action method="setBlockId"><block_id>recent-title</block_id></action>
+            </block>
+            <block type="goodahead_orderedproducts/list" name="goodahead_orderedproducts_list" as="goodahead_orderedproducts" template="goodahead_orderedproducts/recent.phtml"/>
+            <block type="cms/block" name="cms-recent-top" after="goodahead_orderedproducts_lis" >
+                  <action method="setBlockId"><block_id>recent-left-top</block_id></action>
+            </block>
+            <block type="cms/block" name="cms-recent-bottom" after="cms-recent-top" >
+                  <action method="setBlockId"><block_id>recent-left-bottom</block_id></action>
+            </block>
+        </reference>
+    </customer_history_index>
+    
+</layout>
