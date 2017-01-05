@@ -1,0 +1,5 @@
+.htaccess.sample
+.modgit/
+.modman/
+media/
+var/
